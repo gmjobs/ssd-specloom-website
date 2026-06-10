@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; base-uri 'none'; form-action 'none'" />
+  <title>Specloom 文档 · 快速上手与功能说明</title>
+  <meta name="description" content="Specloom 使用文档：在 VS Code 内把需求沿规格驱动流水线推进——安装与 AI 配置、看板与详情面板、SDD 流水线、档位与门禁、进阶能力、数据存储与常见问题。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c12'/%3E%3Cg stroke='%235b8cff' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M9 7v18M16 7v18M23 7v18'/%3E%3C/g%3E%3Cg stroke='%2356e0c8' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M7 11h18M7 16h18M7 21h18'/%3E%3C/g%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#0a0c12" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="Specloom">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#5b8cff" /><stop offset="0.6" stop-color="#b06bff" /><stop offset="1" stop-color="#56e0c8" />
+            </linearGradient>
+          </defs>
+          <g stroke="url(#brandGrad)" stroke-width="2.2" stroke-linecap="round">
+            <line x1="8" y1="3" x2="8" y2="29" /><line x1="16" y1="3" x2="16" y2="29" /><line x1="24" y1="3" x2="24" y2="29" />
+            <line x1="3" y1="10" x2="29" y2="10" /><line x1="3" y1="16" x2="29" y2="16" /><line x1="3" y1="22" x2="29" y2="22" />
+          </g>
+        </svg>
+        <span>Specloom</span><span class="zh">经纬</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#what">是什么</a>
+        <a href="index.html#how">工作流</a>
+        <a href="index.html#install">安装</a>
+      </nav>
+      <div class="nav-tools">
+        <a class="btn btn-primary btn-sm nav-cta" href="index.html#install">安装</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc">
+    <div class="doc-wrap">
+      <a class="doc-back" href="index.html">← 返回首页</a>
+      <h1>Specloom 文档</h1>
+      <p class="doc-sub">在 VS Code 内，让一条需求沿可配置的规格驱动流水线，有序走完从规格到交付的每一步。本页覆盖安装、日常使用与进阶能力。</p>
+
+      <nav class="doc-toc" aria-label="目录">
+        <h4>目录</h4>
+        <ol>
+          <li><a href="#quickstart">快速开始</a></li>
+          <li><a href="#install">安装与 AI 配置</a></li>
+          <li><a href="#board">看板与详情面板</a></li>
+          <li><a href="#sdd">SDD 流水线</a></li>
+          <li><a href="#gates">档位与门禁</a></li>
+          <li><a href="#advanced">进阶能力</a></li>
+          <li><a href="#data">数据与产物</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ol>
+      </nav>
+
+      <section id="quickstart">
+        <h2>快速开始</h2>
+        <ol class="steps-ol">
+          <li><b>配置 AI：</b>命令面板运行 <code>Specloom: 配置 AI（引导）</code>（默认使用 Claude Code CLI，需先 <code>claude login</code>）。</li>
+          <li><b>新建工作项：</b>在侧边栏 <b>Specloom</b> 中创建，填写标题与一句话需求。</li>
+          <li><b>运行流水线：</b>在详情页点击 <b>▶ 运行流水线</b>——简单档一路自动产出；标准档在每道评审门停下，由你审批通过或驳回修订。</li>
+        </ol>
+      </section>
+
+      <section id="install">
+        <h2>安装与 AI 配置</h2>
+        <p>Specloom 是一个 VS Code 扩展。在 VS Code 扩展面板中安装后，需要配置一个 AI 提供方。默认走 <b>Claude Code CLI</b>，在本机安装并登录：</p>
+        <pre><code>npm i -g @anthropic-ai/claude-code
+claude login</code></pre>
+        <p>若不想用 CLI，可在设置里把 <code>lifecycle.aiProvider</code> 改为：</p>
+        <ul>
+          <li><code>vscode-lm</code>：复用 GitHub Copilot 等已授权的 VS Code 语言模型（此模式不支持「直接写文件」）。</li>
+          <li><code>openai-compatible</code>：对接通义 / 千帆 / 豆包 / DeepSeek 等 OpenAI 兼容端点。</li>
+        </ul>
+        <div class="note">切换设置即时生效，无需重载窗口。</div>
+      </section>
+
+      <section id="board">
+        <h2>看板与详情面板</h2>
+        <p>左侧活动栏的 <b>Specloom</b> 图标打开「工作项看板」，工作项按五个阶段分组：</p>
+        <pre><code>💡 需求 → 📖 产品 → 💻 研发 → 🧪 测试 → ✅ 完成</code></pre>
+        <p>每个工作项一行，右侧显示 SDD 进度小标记与更新日期，例如：</p>
+        <pre><code>登录功能    ✓规 ✓方 ○码 ○测  ·  6/2</code></pre>
+        <p>含义：<code>✓规</code>=已有规格、<code>✓方</code>=已生成技术方案、<code>○码</code>=代码骨架未生成、<code>○测</code>=测试用例未生成。点任意工作项打开详情面板，可编辑标题/需求/规格、点击进度条圆点切换阶段，并驱动整条 SDD 流水线。</p>
+      </section>
+
+      <section id="sdd">
+        <h2>SDD 流水线</h2>
+        <p>详情面板里四个节点横向排列，依规格逐步派生产物：</p>
+        <pre><code>[规格说明] → [技术方案] → [代码骨架] → [测试用例]</code></pre>
+        <p><b>推荐顺序</b>：先生成「规格说明」，之后技术方案 / 代码骨架 / 测试用例都基于规格生成。未生成规格就点后续步骤会提示「请先执行 AI 生成规格」。</p>
+        <table>
+          <thead><tr><th>步骤</th><th>输入</th><th>产出</th><th>自动阶段流转</th></tr></thead>
+          <tbody>
+            <tr><td>规格说明</td><td>标题 + 需求描述</td><td>规格文本</td><td>需求 → 产品</td></tr>
+            <tr><td>技术方案</td><td>规格说明</td><td><code>.lifecycle/&lt;id&gt;/design.md</code></td><td>产品 → 研发</td></tr>
+            <tr><td>代码骨架</td><td>规格说明</td><td><code>code.md</code> 或直接写工作区文件</td><td>—</td></tr>
+            <tr><td>测试用例</td><td>规格说明</td><td><code>.lifecycle/&lt;id&gt;/tests.md</code></td><td>研发 → 测试</td></tr>
+          </tbody>
+        </table>
+        <h3>代码骨架直接写入工作区（可选）</h3>
+        <p>设置项 <code>lifecycle.codeGenWriteFiles</code> 开启后，「代码骨架」改用 agent 模式，让 AI 用 Write/Edit 工具直接在当前工作区创建/修改源文件，完成后打开一份「改动总结」。建议在干净的 git 工作区下使用，便于 review 与回滚；每次执行前会弹确认框。</p>
+      </section>
+
+      <section id="gates">
+        <h2>档位与门禁</h2>
+        <p>同一份规格同时支撑两种节奏，你只需选择编织进多少人审：</p>
+        <ul>
+          <li><b>简单档：</b>低风险、边界清晰的需求一键贯穿全程，无需人工交接。</li>
+          <li><b>标准档：</b>在规格、技术方案、发布等关键节点逐道人审，由人确认通过或驳回。</li>
+        </ul>
+        <p>门禁分三类，可按团队 / 应用为每道工序自由编排：</p>
+        <ul>
+          <li><b>人工评审：</b>停下等人审批通过或驳回。</li>
+          <li><b>命令校验：</b>跑一条命令 / CI，通过才放行。</li>
+          <li><b>自动放行：</b>无需停留，直接续跑下一阶段。</li>
+        </ul>
+      </section>
+
+      <section id="advanced">
+        <h2>进阶能力（可选，默认关）</h2>
+        <p>以下能力把「让 AI 按规范产出 + 自动化 + 度量」做扎实，全部 opt-in，默认关闭即行为不变：</p>
+        <table>
+          <thead><tr><th>能力</th><th>设置 / 入口</th><th>一句话</th></tr></thead>
+          <tbody>
+            <tr><td>项目级全局约束 Steering</td><td><code>.lifecycle/steering/*.md</code></td><td>写一次团队规范/技术栈/安全基线，所有阶段的 AI 都遵守。</td></tr>
+            <tr><td>事件驱动自动化 Hooks</td><td><code>.lifecycle/hooks.json</code></td><td>「代码落盘→跑测试」「spec 改→重生过期产物」等事件自动触发。</td></tr>
+            <tr><td>原子步骤执行</td><td><code>atomicSteps</code></td><td>大变更拆成小步逐个实现 + 校验 + 提交，失败停在该步不整笔废。</td></tr>
+            <tr><td>双轮校验防幻觉</td><td><code>verifyCodeGrounding</code></td><td>独立 Agent 核对代码引用的符号/依赖是否真实存在。</td></tr>
+            <tr><td>Spec 自反馈</td><td><code>specFeedback</code></td><td>交付后回看规格质量，沉淀改进 backlog 并打分。</td></tr>
+            <tr><td>AI 效果度量</td><td>管理看板「AI 效果」</td><td>采纳/重生率、首次正确率 FPY、规格质量分。</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="data">
+        <h2>数据与产物</h2>
+        <p>打开工作区文件夹时，全部数据存在工作区的 <code>.lifecycle/</code> 目录，可随 git 提交、团队共享：</p>
+        <pre><code>&lt;你的项目&gt;/
+└── .lifecycle/
+    ├── items.json            # 所有工作项（标题/阶段/规格/产物路径…）
+    └── &lt;工作项id&gt;/
+        ├── design.md         # 技术方案
+        ├── code.md           # 代码骨架（文档模式）
+        └── tests.md          # 测试用例</code></pre>
+        <p>删除工作项时，其 <code>.lifecycle/&lt;id&gt;/</code> 产物目录会被一并清理。未打开任何文件夹时，数据回退存到 VS Code 的 workspaceState（仅本机），AI 产物退化为临时文档（关闭即失，不落盘）。</p>
+      </section>
+
+      <section id="faq">
+        <h2>常见问题</h2>
+        <h3>报错「未找到 Claude CLI」</h3>
+        <p>未安装或不在 PATH。执行 <code>npm i -g @anthropic-ai/claude-code</code> 后 <code>claude login</code>，或用 <code>lifecycle.claudeCodePath</code> 指定完整路径。</p>
+        <h3>报错「未找到可用的语言模型」（vscode-lm 模式）</h3>
+        <p>需安装并登录可提供模型的扩展（如 GitHub Copilot）。</p>
+        <h3>点「打开」提示文档不存在</h3>
+        <p><code>.lifecycle/&lt;id&gt;/</code> 下的产物被手工删除了，重新「生成」即可。</p>
+        <h3>阶段没自动推进</h3>
+        <p>只有当前正处于对应起始阶段时才会推进（如「技术方案」仅在「产品」阶段才推进到「研发」），以避免覆盖你手工设置的阶段。需要时直接点进度条圆点切换。</p>
+        <h3>产物没落盘，只开了临时文档</h3>
+        <p>当前没打开工作区文件夹，请在扩展宿主窗口打开一个文件夹后重试。</p>
+      </section>
+    </div>
+  </main>
+
+  <footer aria-labelledby="footBrand">
+    <div class="wrap">
+      <div class="foot-bottom">
+        <span>© 2026 Specloom（经纬）</span>
+        <a class="doc-back" href="index.html" style="margin:0">← 返回首页</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -20,6 +20,7 @@
       why: "Why",
       how: "Workflow",
       install: "Install",
+      docs: "Docs",
       menu: "Toggle navigation",
     },
 
@@ -164,6 +165,17 @@
       },
     },
 
+    roadmap: {
+      eyebrow: "Roadmap",
+      badge: "Planned",
+      heading: "Grows from solo to team",
+      lede: "Productive for one in the editor today. The team / enterprise capabilities below are planned, not yet shipped — listed here to show direction, not current features.",
+      r1: { title: "Visual flow orchestration", desc: "Configure stages / gates / roles / profiles in a back office, globally or per app." },
+      r2: { title: "Approval center + RBAC", desc: "Human-gate todos in one place; who approved and when stays fully auditable." },
+      r3: { title: "Notifications & collaboration", desc: "Review todos and approve / reject pushed to your team chat in real time." },
+      r4: { title: "Delivery metrics dashboard", desc: "Throughput, lead time, per-stage bottlenecks, rework rate and first-pass yield (FPY)." },
+    },
+
     install: {
       eyebrow: "Get started",
       heading: "Install the extension, weave your first spec",
@@ -186,6 +198,7 @@
         why: "Why Specloom",
         how: "Workflow",
         install: "Install",
+        docs: "Documentation",
       },
       copyright: "© 2026 Specloom (经纬)",
     },
