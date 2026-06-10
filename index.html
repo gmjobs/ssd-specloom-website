@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 内容安全策略：禁止内联外源脚本与远程资源，契合「零第三方运行时依赖」(NFR-S3/NFR-P2) -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; base-uri 'none'; form-action 'none'" />
+  <title data-i18n="meta.title">Specloom · Spec-Driven Development Lifecycle Orchestrator</title>
+  <meta name="description" data-i18n-attr="content:meta.description"
+        content="Specloom is an AI-native, spec-driven development (SDD) software lifecycle orchestrator. The spec is the single source of truth." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 经纬编织背景纹理由 body::before 提供，纯装饰 -->
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Specloom">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#5b8cff" />
+              <stop offset="0.6" stop-color="#b06bff" />
+              <stop offset="1" stop-color="#56e0c8" />
+            </linearGradient>
+          </defs>
+          <!-- 经线（竖）与纬线（横）交织 -->
+          <g stroke="url(#brandGrad)" stroke-width="2.2" stroke-linecap="round">
+            <line x1="8" y1="3" x2="8" y2="29" />
+            <line x1="16" y1="3" x2="16" y2="29" />
+            <line x1="24" y1="3" x2="24" y2="29" />
+            <line x1="3" y1="10" x2="29" y2="10" />
+            <line x1="3" y1="16" x2="29" y2="16" />
+            <line x1="3" y1="22" x2="29" y2="22" />
+          </g>
+        </svg>
+        <span>Specloom</span>
+        <span class="zh" data-i18n="hero.productZh">经纬</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#what" data-i18n="nav.what">What</a>
+        <a href="#why" data-i18n="nav.why">Why</a>
+        <a href="#how" data-i18n="nav.how">Workflow</a>
+        <a href="#install" data-i18n="nav.install">Install</a>
+      </nav>
+
+      <div class="nav-tools">
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
+          <button type="button" id="langZh" data-lang="zh" data-i18n="lang.zh"
+                  data-i18n-attr="aria-label:lang.zhAria" aria-pressed="false">中</button>
+          <button type="button" id="langEn" data-lang="en" data-i18n="lang.en"
+                  data-i18n-attr="aria-label:lang.enAria" aria-pressed="true">EN</button>
+        </div>
+        <a class="btn btn-ghost btn-sm nav-github" data-cfg-href="githubUrl"
+           target="_blank" rel="noopener noreferrer"
+           data-i18n="nav.github" data-i18n-attr="aria-label:nav.github">GitHub</a>
+      </div>
+
+      <button type="button" class="nav-toggle" id="navToggle"
+              aria-expanded="false" aria-controls="mobileMenu"
+              data-i18n-attr="aria-label:nav.menu" aria-label="Toggle navigation">☰</button>
+    </div>
+
+    <!-- 移动端折叠菜单 -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <div class="wrap">
+        <a href="#what" data-i18n="nav.what">What</a>
+        <a href="#why" data-i18n="nav.why">Why</a>
+        <a href="#how" data-i18n="nav.how">Workflow</a>
+        <a href="#install" data-i18n="nav.install">Install</a>
+        <a class="m-github" data-cfg-href="githubUrl" target="_blank" rel="noopener noreferrer"
+           data-i18n="nav.github">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="wrap">
+        <span class="badge"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.badge">AI-native · Spec-Driven Development</span></span>
+        <h1 class="title" id="heroTitle">
+          <span data-i18n="hero.titleLead">Weave specs into</span>
+          <span class="grad" data-i18n="hero.titleGrad">shipped software</span>
+        </h1>
+        <p class="title-zh" data-i18n="hero.productZh" aria-hidden="true">经纬</p>
+        <p class="lede" data-i18n="hero.tagline">
+          An AI-native, spec-driven development orchestrator — the spec is the single source of truth.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" id="heroPrimary" href="#install" data-i18n="hero.primaryCta.label">Install</a>
+          <a class="btn btn-ghost" id="heroSecondary" data-cfg-href="githubUrl"
+             target="_blank" rel="noopener noreferrer" data-i18n="hero.secondaryCta.label">View on GitHub</a>
+        </div>
+
+        <!-- 经纬装饰：编织经线/纬线（纯 SVG，装饰性） -->
+        <div class="loom" aria-hidden="true">
+          <svg viewBox="0 0 760 70" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="loomGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#5b8cff" stop-opacity="0" />
+                <stop offset="0.5" stop-color="#b06bff" stop-opacity="0.9" />
+                <stop offset="1" stop-color="#56e0c8" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <g stroke="url(#loomGrad)" stroke-width="1.5">
+              <path d="M0 35 Q 95 8 190 35 T 380 35 T 570 35 T 760 35" fill="none" />
+              <path d="M0 35 Q 95 62 190 35 T 380 35 T 570 35 T 760 35" fill="none" />
+            </g>
+            <g stroke="#222838" stroke-width="1">
+              <line x1="95" y1="6" x2="95" y2="64" /><line x1="285" y1="6" x2="285" y2="64" />
+              <line x1="475" y1="6" x2="475" y2="64" /><line x1="665" y1="6" x2="665" y2="64" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT ============ -->
+    <section class="sec" id="what" aria-labelledby="whatHeading">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="what.eyebrow">What it is</p>
+        <h2 id="whatHeading" data-i18n="what.heading">The spec is the loom that runs everything</h2>
+        <p class="sec-lede" data-i18n="what.lede"></p>
+        <div class="grid grid-3" id="whatCards"><!-- 由 app.js 按字典渲染 --></div>
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="sec" id="why" aria-labelledby="whyHeading">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="why.eyebrow">Why it matters</p>
+        <h2 id="whyHeading" data-i18n="why.heading">Two modes, one source of truth</h2>
+        <p class="sec-lede" data-i18n="why.lede"></p>
+        <div class="modes">
+          <article class="mode simple">
+            <span class="tag" data-i18n="why.simple.tag">Simple</span>
+            <h3 data-i18n="why.simple.title">One-shot delivery</h3>
+            <p data-i18n="why.simple.desc"></p>
+            <ul id="whySimplePoints"></ul>
+          </article>
+          <article class="mode complex">
+            <span class="tag" data-i18n="why.complex.tag">Complex</span>
+            <h3 data-i18n="why.complex.title">Stage-by-stage human review</h3>
+            <p data-i18n="why.complex.desc"></p>
+            <ul id="whyComplexPoints"></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW / PIPELINE ============ -->
+    <section class="sec" id="how" aria-labelledby="howHeading">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="pipeline.eyebrow">How it works</p>
+        <h2 id="howHeading" data-i18n="pipeline.heading">A configurable lifecycle pipeline</h2>
+        <p class="sec-lede" data-i18n="pipeline.lede"></p>
+
+        <div class="mode-toggle" role="group" data-i18n-attr="aria-label:pipeline.modeAria" aria-label="Pipeline mode">
+          <button type="button" id="pipeSimple" data-mode="simple" aria-pressed="true"
+                  data-i18n="pipeline.modeSimpleLabel">Simple — one shot</button>
+          <button type="button" id="pipeComplex" data-mode="complex" aria-pressed="false"
+                  data-i18n="pipeline.modeComplexLabel">Complex — human review</button>
+        </div>
+
+        <div class="pipe" id="pipeStages" role="list"><!-- 由 app.js 渲染 --></div>
+
+        <div class="pipe-legend">
+          <span><i class="lg-dot lg-auto" aria-hidden="true"></i><span data-i18n="pipeline.legend.auto">Auto</span></span>
+          <span><i class="lg-dot lg-human" aria-hidden="true"></i><span data-i18n="pipeline.legend.human">Human review</span></span>
+          <span class="legend-note" data-i18n="pipeline.legendNote"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSTALL ============ -->
+    <section class="sec" id="install" aria-labelledby="installHeading">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="install.eyebrow">Get started</p>
+        <h2 id="installHeading" data-i18n="install.heading">Install and weave your first spec</h2>
+        <p class="sec-lede" data-i18n="install.lede"></p>
+
+        <div class="install-wrap">
+          <div class="code-block">
+            <div class="code-head">
+              <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+              <button type="button" class="copy-btn" id="copyBtn"
+                      data-i18n-attr="aria-label:install.copyAria" aria-label="Copy install command">
+                <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+                <span class="copy-label" data-i18n="install.copyLabel">Copy</span>
+              </button>
+            </div>
+            <pre class="code-body" id="codeBody" tabindex="0"><!-- 命令由 config 渲染 --></pre>
+          </div>
+
+          <div class="install-info">
+            <h3 data-i18n="install.infoTitle">Open source, yours to run</h3>
+            <p data-i18n="install.infoText"></p>
+            <a class="btn btn-ghost" data-cfg-href="docsUrl" target="_blank" rel="noopener noreferrer"
+               data-i18n="install.docsCta">Read the docs</a>
+            <a class="btn btn-primary" data-cfg-href="githubUrl" target="_blank" rel="noopener noreferrer"
+               data-i18n="install.githubCta">Star on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer aria-labelledby="footBrand">
+    <div class="wrap">
+      <div class="foot-inner">
+        <div class="foot-brand">
+          <div class="brand" id="footBrand">
+            <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <g stroke="url(#brandGrad)" stroke-width="2.2" stroke-linecap="round">
+                <line x1="8" y1="3" x2="8" y2="29" /><line x1="16" y1="3" x2="16" y2="29" /><line x1="24" y1="3" x2="24" y2="29" />
+                <line x1="3" y1="10" x2="29" y2="10" /><line x1="3" y1="16" x2="29" y2="16" /><line x1="3" y1="22" x2="29" y2="22" />
+              </g>
+            </svg>
+            <span>Specloom</span><span class="zh" data-i18n="hero.productZh">经纬</span>
+          </div>
+          <p data-i18n="footer.tagline"></p>
+        </div>
+
+        <div class="foot-links">
+          <div class="foot-col">
+            <h4 data-i18n="footer.colProduct">Product</h4>
+            <a href="#what" data-i18n="footer.links.what">What it is</a>
+            <a href="#why" data-i18n="footer.links.why">Why Specloom</a>
+            <a href="#how" data-i18n="footer.links.how">Workflow</a>
+            <a href="#install" data-i18n="footer.links.install">Install</a>
+          </div>
+          <div class="foot-col">
+            <h4 data-i18n="footer.colResource">Resources</h4>
+            <a class="foot-github" data-cfg-href="githubUrl" target="_blank" rel="noopener noreferrer"
+               data-i18n="footer.links.github">GitHub repository</a>
+            <a data-cfg-href="docsUrl" target="_blank" rel="noopener noreferrer"
+               data-i18n="footer.links.docs">Documentation</a>
+            <a data-cfg-href="githubUrl" target="_blank" rel="noopener noreferrer"
+               data-i18n="footer.links.license">License</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <span data-i18n="footer.copyright">© 2026 Specloom (经纬). Open source.</span>
+        <span><span data-i18n="footer.licenseLabel">License</span>: <span id="licenseType">TBD</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 复制成功 / 降级反馈 -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- 顺序加载：配置 → 字典 → 应用（非 ESM，保证 file:// 离线直接打开可用，AT-26） -->
+  <script src="config.js"></script>
+  <script src="i18n/zh.js"></script>
+  <script src="i18n/en.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
