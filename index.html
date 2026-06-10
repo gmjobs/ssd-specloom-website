@@ -9,6 +9,21 @@
   <title data-i18n="meta.title">Specloom · Spec-Driven Development Pipeline for VS Code</title>
   <meta name="description" data-i18n-attr="content:meta.description"
         content="Specloom is a VS Code extension that takes a requirement through a configurable pipeline — spec, prototype, design, code and tests — each stage auto-generated and advanced through review gates. The spec is the single source of truth." />
+
+  <!-- Favicon：经纬织机标，内联 SVG（CSP img-src 'self' data: 允许） -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c12'/%3E%3Cg stroke='%235b8cff' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M9 7v18M16 7v18M23 7v18'/%3E%3C/g%3E%3Cg stroke='%2356e0c8' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M7 11h18M7 16h18M7 21h18'/%3E%3C/g%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#0a0c12" />
+
+  <!-- 社交分享卡（Open Graph / Twitter）。og:image 待补真实位图（Phase 3） -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://specloom.tech/" />
+  <meta property="og:site_name" content="Specloom" />
+  <meta property="og:title" content="Specloom 经纬 · VS Code 里的规格驱动研发流水线" />
+  <meta property="og:description" content="一个 VS Code 扩展：把需求沿可配置流水线，逐阶段沉淀为规格、原型、技术方案、代码与测试，每阶段自动产出、按门禁评审推进。规格是唯一事实源。" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Specloom 经纬 · 规格驱动研发流水线" />
+  <meta name="twitter:description" content="VS Code 里把需求逐阶段沉淀为规格、原型、方案、代码与测试，规格是唯一事实源。" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -54,7 +69,7 @@
           <button type="button" id="langEn" data-lang="en" data-i18n="lang.en"
                   data-i18n-attr="aria-label:lang.enAria" aria-pressed="true">EN</button>
         </div>
-        <a class="btn btn-primary btn-sm" href="#install" data-i18n="nav.install">Install</a>
+        <a class="btn btn-primary btn-sm nav-cta" href="#install" data-i18n="nav.install">Install</a>
       </div>
 
       <button type="button" class="nav-toggle" id="navToggle"
@@ -91,25 +106,43 @@
           <a class="btn btn-ghost" id="heroSecondary" href="#how" data-i18n="hero.secondaryCta.label">See the workflow</a>
         </div>
 
-        <!-- 经纬装饰：编织经线/纬线（纯 SVG，装饰性） -->
-        <div class="loom" aria-hidden="true">
-          <svg viewBox="0 0 760 70" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="loomGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#5b8cff" stop-opacity="0" />
-                <stop offset="0.5" stop-color="#b06bff" stop-opacity="0.9" />
-                <stop offset="1" stop-color="#56e0c8" stop-opacity="0" />
-              </linearGradient>
-            </defs>
-            <g stroke="url(#loomGrad)" stroke-width="1.5">
-              <path d="M0 35 Q 95 8 190 35 T 380 35 T 570 35 T 760 35" fill="none" />
-              <path d="M0 35 Q 95 62 190 35 T 380 35 T 570 35 T 760 35" fill="none" />
-            </g>
-            <g stroke="#222838" stroke-width="1">
-              <line x1="95" y1="6" x2="95" y2="64" /><line x1="285" y1="6" x2="285" y2="64" />
-              <line x1="475" y1="6" x2="475" y2="64" /><line x1="665" y1="6" x2="665" y2="64" />
-            </g>
-          </svg>
+        <!-- 信任条：三个核心事实 -->
+        <div class="hero-meta">
+          <span data-i18n="hero.meta1">规格为唯一事实源</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span data-i18n="hero.meta2">可配置门禁与档位</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span data-i18n="hero.meta3">需求全程可追溯</span>
+        </div>
+
+        <!-- 产品视觉：一份规格 → AI 派生的产物（纯 HTML/CSS，零依赖） -->
+        <div class="showcase">
+          <div class="window" role="img" data-i18n-attr="aria-label:show.alt" aria-label="Specloom：从规格派生产物的示意">
+            <div class="win-bar">
+              <span class="d r" aria-hidden="true"></span><span class="d y" aria-hidden="true"></span><span class="d g" aria-hidden="true"></span>
+              <span class="win-title">spec.md</span>
+              <span class="win-tag" data-i18n="show.winTag">Specloom</span>
+            </div>
+            <div class="win-body">
+              <div class="codecol">
+<pre class="show-code"><span class="cm"># <span data-i18n="show.specTitle">需求：邮箱登录</span></span>
+<span class="kw" data-i18n="show.specGoal">## 目标：用户用邮箱 + 密码登录</span>
+<span class="ln">- AC1 <span data-i18n="show.ac1">校验邮箱格式，错误即时提示</span></span>
+<span class="ln">- AC2 <span data-i18n="show.ac2">连续 5 次失败锁定 10 分钟</span></span>
+<span class="cm" data-i18n="show.specNote"># 改规格 → 下游产物自动标记过期</span></pre>
+              </div>
+              <div class="gencol">
+                <div class="gen-head"><span class="gen-dot" aria-hidden="true"></span><span data-i18n="show.genHead">AI 据规格生成 / 落盘</span></div>
+                <ul class="gen-list">
+                  <li><i class="tk" aria-hidden="true"></i><code>prototype.html</code><span data-i18n="show.g1">可点击原型</span></li>
+                  <li><i class="tk" aria-hidden="true"></i><code>design.md</code><span data-i18n="show.g2">技术方案 + 架构图</span></li>
+                  <li><i class="tk" aria-hidden="true"></i><code>code.md</code><span data-i18n="show.g3">可运行实现</span></li>
+                  <li><i class="tk" aria-hidden="true"></i><code>tests.md</code><span data-i18n="show.g4">验收测试</span></li>
+                  <li><i class="tk" aria-hidden="true"></i><code>trace.md</code><span data-i18n="show.g5">需求追溯映射</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -167,6 +200,32 @@
           <span><i class="lg-dot lg-auto" aria-hidden="true"></i><span data-i18n="pipeline.legend.auto">Auto</span></span>
           <span><i class="lg-dot lg-human" aria-hidden="true"></i><span data-i18n="pipeline.legend.human">Human review</span></span>
           <span class="legend-note" data-i18n="pipeline.legendNote"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STEPS / 三步怎么用 ============ -->
+    <section class="sec" id="start" aria-labelledby="startHeading">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="steps.eyebrow">In practice</p>
+        <h2 id="startHeading" data-i18n="steps.heading">Three steps, sentence to shippable</h2>
+        <p class="sec-lede" data-i18n="steps.lede"></p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-n">01</div>
+            <h3 data-i18n="steps.s1.title">Describe</h3>
+            <p data-i18n="steps.s1.desc"></p>
+          </div>
+          <div class="step">
+            <div class="step-n">02</div>
+            <h3 data-i18n="steps.s2.title">Review by profile</h3>
+            <p data-i18n="steps.s2.desc"></p>
+          </div>
+          <div class="step">
+            <div class="step-n">03</div>
+            <h3 data-i18n="steps.s3.title">Deliver</h3>
+            <p data-i18n="steps.s3.desc"></p>
+          </div>
         </div>
       </div>
     </section>

@@ -41,12 +41,31 @@
         "A VS Code extension that walks a requirement through a configurable pipeline, from spec to delivery. The spec is the single source of truth — change it upstream and the downstream rebuilds.",
       primaryCta: { label: "Install", target: "#install" },
       secondaryCta: { label: "See the workflow" },
+      meta1: "Spec is the source of truth",
+      meta2: "Configurable gates & profiles",
+      meta3: "End-to-end traceability",
       loomAlt: "Warp-and-weft loom motif",
+    },
+
+    show: {
+      alt: "Illustration: one spec.md, from which AI derives a prototype, design, code, tests and a traceability map",
+      winTag: "Specloom",
+      specTitle: "Requirement: Email login",
+      specGoal: "## Goal: sign in with email + password",
+      ac1: "Validate email format, inline errors",
+      ac2: "Lock 10 min after 5 failed tries",
+      specNote: "# Edit the spec → downstream artifacts flagged stale",
+      genHead: "AI generates from the spec",
+      g1: "Clickable prototype",
+      g2: "Design + architecture",
+      g3: "Runnable implementation",
+      g4: "Acceptance tests vs the spec",
+      g5: "Requirement ↔ code ↔ test trace",
     },
 
     what: {
       eyebrow: "What it is",
-      heading: "The spec is the loom that runs everything",
+      heading: "Not just another autocomplete",
       lede: "Inside VS Code, Specloom collapses scattered docs and prompts into one living spec — requirements, prototypes, design, code and tests all derive from it and flow through a single panel.",
       cards: [
         {
@@ -56,13 +75,28 @@
         },
         {
           icon: "ai",
-          title: "AI across the lifecycle",
-          desc: "Requirement → spec/prototype → design → code → test → release: AI produces the artifact at every stage, not as a bolt-on assistant. Defaults to Claude Code, and also supports VS Code language models and OpenAI-compatible endpoints.",
+          title: "AI generates every artifact",
+          desc: "Spec, clickable prototype, design, code, tests and traceability — each stage produces what it should, generated from the spec, not a bolt-on autocomplete.",
         },
         {
-          icon: "pipe",
-          title: "Right inside VS Code",
-          desc: "A board and pipeline detail in one view keep every work item's progress visible. Artifacts land in your workspace's .lifecycle/ folder — commit them with git, share them with the team.",
+          icon: "verify",
+          title: "Double-checked against hallucination",
+          desc: "After codegen, an independent agent can re-read the output and verify the symbols, dependencies and contracts it references actually exist — catching plausible-but-wrong before it lands.",
+        },
+        {
+          icon: "model",
+          title: "Bring your own model",
+          desc: "Defaults to Claude Code, and also supports VS Code language models and OpenAI-compatible endpoints (Qwen / Qianfan / Doubao / DeepSeek…). The model choice is yours.",
+        },
+        {
+          icon: "trace",
+          title: "Traceable and auditable",
+          desc: "A requirement ↔ code ↔ test traceability map; artifacts record their lineage, and every gate approval is anchored to the spec — no AI black box.",
+        },
+        {
+          icon: "local",
+          title: "Your data stays in your repo",
+          desc: "Every artifact lands in your workspace's .lifecycle/ folder — commit it with git, share it with the team, nothing leaves your repository.",
         },
       ],
     },
@@ -110,6 +144,24 @@
       ],
       legend: { auto: "Auto", human: "Human review" },
       legendNote: "Gates shown for the selected mode. Every stage is configurable.",
+    },
+
+    steps: {
+      eyebrow: "In practice",
+      heading: "Three steps, sentence to shippable",
+      lede: "Create a work item in the editor sidebar, hit “▶ Run pipeline”, and let the spec do the rest.",
+      s1: {
+        title: "Describe",
+        desc: "Write a title and a one-line requirement. AI drafts a structured spec and a clickable prototype for review.",
+      },
+      s2: {
+        title: "Review by profile",
+        desc: "The simple profile auto-passes; the standard profile stops at spec, design and release gates for you to approve or reject.",
+      },
+      s3: {
+        title: "Deliver",
+        desc: "Design, code and tests are generated from the spec and land in .lifecycle/, ready to commit with git and share with the team.",
+      },
     },
 
     install: {

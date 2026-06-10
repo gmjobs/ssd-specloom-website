@@ -121,6 +121,10 @@
     spec: '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM8 13h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>',
     ai: '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a1 1 0 0 1 1 1v1.06A8 8 0 0 1 19.94 11H21a1 1 0 1 1 0 2h-1.06A8 8 0 0 1 13 19.94V21a1 1 0 1 1-2 0v-1.06A8 8 0 0 1 4.06 13H3a1 1 0 1 1 0-2h1.06A8 8 0 0 1 11 4.06V3a1 1 0 0 1 1-1zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>',
     pipe: '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h6v4H4V5zm10 0h6v4h-6V5zM4 15h6v4H4v-4zm10 0h6v4h-6v-4zM10 6h4v2h-4V6zm-3 4h2v4H7v-4zm8 0h2v4h-2v-4z"/></svg>',
+    verify: '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1L3 5v6c0 5.05 3.41 9.76 9 11 5.59-1.24 9-5.95 9-11V5l-9-4zm-1.2 14.2L7 11.4l1.4-1.4 2.4 2.4 4.8-4.8L17 9l-6.2 6.2z"/></svg>',
+    model: '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a3 3 0 0 1 3 3 3 3 0 0 1-.4 1.5l2 2A3 3 0 0 1 22 11a3 3 0 0 1-5.6 1.5l-2 2A3 3 0 1 1 9.5 16.4l-2-2A3 3 0 1 1 6 9.4l2-2A3 3 0 0 1 12 2zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM5 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm14 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-7 7a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>',
+    trace: '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.9 12a3.1 3.1 0 0 1 3.1-3.1h4v2H7a1.1 1.1 0 0 0 0 2.2h4v2H7A3.1 3.1 0 0 1 3.9 12zM13 8.9h4a3.1 3.1 0 0 1 0 6.2h-4v-2h4a1.1 1.1 0 0 0 0-2.2h-4v-2zM8 11h8v2H8v-2z"/></svg>',
+    local: '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h7l2 2h7a2 2 0 0 1 2 2v3.5a3.5 3.5 0 0 0-2-1.4V8H4v10h6.1a3.5 3.5 0 0 0 1.4 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm13.5 8a2.5 2.5 0 0 1 2.5 2.5V16h.5a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h.5v-1.5a2.5 2.5 0 0 1 2.5-2.5zm0 1.8a.7.7 0 0 0-.7.7V16h1.4v-1.5a.7.7 0 0 0-.7-.7z"/></svg>',
   };
   I18nEngine.prototype.renderWhatCards = function (dict) {
     var host = document.getElementById("whatCards");
@@ -294,6 +298,17 @@
           toggle.setAttribute("aria-expanded", "false");
         });
       }
+    }
+
+    // 顶栏随滚动加深（专业感细节）
+    var nav = document.querySelector("header.nav");
+    if (nav) {
+      var onScroll = function () {
+        if (window.scrollY > 8) nav.classList.add("scrolled");
+        else nav.classList.remove("scrolled");
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
     }
   };
 
