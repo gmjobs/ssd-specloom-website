@@ -7,7 +7,7 @@
         content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; base-uri 'none'; form-action 'none'" />
   <title>Specloom 文档 · 快速上手与功能说明</title>
   <meta name="description" content="Specloom 使用文档：在 VS Code 内把需求沿规格驱动流水线推进——安装与 AI 配置、看板与详情面板、SDD 流水线、档位与门禁、进阶能力、数据存储与常见问题。" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c12'/%3E%3Cg stroke='%235b8cff' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M9 7v18M16 7v18M23 7v18'/%3E%3C/g%3E%3Cg stroke='%2356e0c8' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M7 11h18M7 16h18M7 21h18'/%3E%3C/g%3E%3C/svg%3E" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#0a0c12" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -18,13 +18,13 @@
       <a class="brand" href="index.html" aria-label="Specloom">
         <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
           <defs>
-            <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#5b8cff" /><stop offset="0.6" stop-color="#b06bff" /><stop offset="1" stop-color="#56e0c8" />
-            </linearGradient>
+            <linearGradient id="gWarp" gradientUnits="userSpaceOnUse" x1="0" y1="6" x2="0" y2="26"><stop offset="0" stop-color="#6d9bff" /><stop offset="1" stop-color="#56e0c8" /></linearGradient>
+            <linearGradient id="gWeft" gradientUnits="userSpaceOnUse" x1="6" y1="0" x2="26" y2="0"><stop offset="0" stop-color="#b06bff" /><stop offset="1" stop-color="#5b8cff" /></linearGradient>
           </defs>
-          <g stroke="url(#brandGrad)" stroke-width="2.2" stroke-linecap="round">
-            <line x1="8" y1="3" x2="8" y2="29" /><line x1="16" y1="3" x2="16" y2="29" /><line x1="24" y1="3" x2="24" y2="29" />
-            <line x1="3" y1="10" x2="29" y2="10" /><line x1="3" y1="16" x2="29" y2="16" /><line x1="3" y1="22" x2="29" y2="22" />
+          <g fill="none" stroke-width="3.6" stroke-linecap="round">
+            <g stroke="url(#gWeft)"><line x1="6" y1="11.5" x2="26" y2="11.5" /><line x1="6" y1="20.5" x2="26" y2="20.5" /></g>
+            <g stroke="url(#gWarp)"><line x1="11.5" y1="6" x2="11.5" y2="26" /><line x1="20.5" y1="6" x2="20.5" y2="26" /></g>
+            <g stroke="url(#gWeft)"><line x1="17.5" y1="11.5" x2="23.5" y2="11.5" /><line x1="8.5" y1="20.5" x2="14.5" y2="20.5" /></g>
           </g>
         </svg>
         <span>Specloom</span><span class="zh">经纬</span>

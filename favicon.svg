@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="favWarp" gradientUnits="userSpaceOnUse" x1="0" y1="6" x2="0" y2="26">
+      <stop offset="0" stop-color="#6d9bff"/><stop offset="1" stop-color="#56e0c8"/>
+    </linearGradient>
+    <linearGradient id="favWeft" gradientUnits="userSpaceOnUse" x1="6" y1="0" x2="26" y2="0">
+      <stop offset="0" stop-color="#b06bff"/><stop offset="1" stop-color="#5b8cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#0a0c12"/>
+  <g fill="none" stroke-width="3.6" stroke-linecap="round">
+    <g stroke="url(#favWeft)"><line x1="6" y1="11.5" x2="26" y2="11.5"/><line x1="6" y1="20.5" x2="26" y2="20.5"/></g>
+    <g stroke="url(#favWarp)"><line x1="11.5" y1="6" x2="11.5" y2="26"/><line x1="20.5" y1="6" x2="20.5" y2="26"/></g>
+    <g stroke="url(#favWeft)"><line x1="17.5" y1="11.5" x2="23.5" y2="11.5"/><line x1="8.5" y1="20.5" x2="14.5" y2="20.5"/></g>
+  </g>
+</svg>

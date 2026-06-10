@@ -10,8 +10,8 @@
   <meta name="description" data-i18n-attr="content:meta.description"
         content="Specloom is a VS Code extension that takes a requirement through a configurable pipeline — spec, prototype, design, code and tests — each stage auto-generated and advanced through review gates. The spec is the single source of truth." />
 
-  <!-- Favicon：经纬织机标，内联 SVG（CSP img-src 'self' data: 允许） -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c12'/%3E%3Cg stroke='%235b8cff' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M9 7v18M16 7v18M23 7v18'/%3E%3C/g%3E%3Cg stroke='%2356e0c8' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M7 11h18M7 16h18M7 21h18'/%3E%3C/g%3E%3C/svg%3E" />
+  <!-- Favicon：经纬织机标（交织平纹），同源 SVG 文件 -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#0a0c12" />
 
   <!-- 社交分享卡（Open Graph / Twitter）。og:image 待补真实位图（Phase 3） -->
@@ -20,7 +20,11 @@
   <meta property="og:site_name" content="Specloom" />
   <meta property="og:title" content="Specloom 经纬 · VS Code 里的规格驱动研发流水线" />
   <meta property="og:description" content="一个 VS Code 扩展：把需求沿可配置流水线，逐阶段沉淀为规格、原型、技术方案、代码与测试，每阶段自动产出、按门禁评审推进。规格是唯一事实源。" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://specloom.tech/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://specloom.tech/og.png" />
   <meta name="twitter:title" content="Specloom 经纬 · 规格驱动研发流水线" />
   <meta name="twitter:description" content="VS Code 里把需求逐阶段沉淀为规格、原型、方案、代码与测试，规格是唯一事实源。" />
 
@@ -35,20 +39,18 @@
       <a class="brand" href="#top" aria-label="Specloom">
         <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
           <defs>
-            <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#5b8cff" />
-              <stop offset="0.6" stop-color="#b06bff" />
-              <stop offset="1" stop-color="#56e0c8" />
+            <linearGradient id="navWarp" gradientUnits="userSpaceOnUse" x1="0" y1="6" x2="0" y2="26">
+              <stop offset="0" stop-color="#6d9bff" /><stop offset="1" stop-color="#56e0c8" />
+            </linearGradient>
+            <linearGradient id="navWeft" gradientUnits="userSpaceOnUse" x1="6" y1="0" x2="26" y2="0">
+              <stop offset="0" stop-color="#b06bff" /><stop offset="1" stop-color="#5b8cff" />
             </linearGradient>
           </defs>
-          <!-- 经线（竖）与纬线（横）交织 -->
-          <g stroke="url(#brandGrad)" stroke-width="2.2" stroke-linecap="round">
-            <line x1="8" y1="3" x2="8" y2="29" />
-            <line x1="16" y1="3" x2="16" y2="29" />
-            <line x1="24" y1="3" x2="24" y2="29" />
-            <line x1="3" y1="10" x2="29" y2="10" />
-            <line x1="3" y1="16" x2="29" y2="16" />
-            <line x1="3" y1="22" x2="29" y2="22" />
+          <!-- 经线（竖）与纬线（横）交织成「织」——过/下交叠的平纹 -->
+          <g fill="none" stroke-width="3.6" stroke-linecap="round">
+            <g stroke="url(#navWeft)"><line x1="6" y1="11.5" x2="26" y2="11.5" /><line x1="6" y1="20.5" x2="26" y2="20.5" /></g>
+            <g stroke="url(#navWarp)"><line x1="11.5" y1="6" x2="11.5" y2="26" /><line x1="20.5" y1="6" x2="20.5" y2="26" /></g>
+            <g stroke="url(#navWeft)"><line x1="17.5" y1="11.5" x2="23.5" y2="11.5" /><line x1="8.5" y1="20.5" x2="14.5" y2="20.5" /></g>
           </g>
         </svg>
         <span>Specloom</span>
@@ -301,9 +303,14 @@
         <div class="foot-brand">
           <div class="brand" id="footBrand">
             <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-              <g stroke="url(#brandGrad)" stroke-width="2.2" stroke-linecap="round">
-                <line x1="8" y1="3" x2="8" y2="29" /><line x1="16" y1="3" x2="16" y2="29" /><line x1="24" y1="3" x2="24" y2="29" />
-                <line x1="3" y1="10" x2="29" y2="10" /><line x1="3" y1="16" x2="29" y2="16" /><line x1="3" y1="22" x2="29" y2="22" />
+              <defs>
+                <linearGradient id="footWarp" gradientUnits="userSpaceOnUse" x1="0" y1="6" x2="0" y2="26"><stop offset="0" stop-color="#6d9bff" /><stop offset="1" stop-color="#56e0c8" /></linearGradient>
+                <linearGradient id="footWeft" gradientUnits="userSpaceOnUse" x1="6" y1="0" x2="26" y2="0"><stop offset="0" stop-color="#b06bff" /><stop offset="1" stop-color="#5b8cff" /></linearGradient>
+              </defs>
+              <g fill="none" stroke-width="3.6" stroke-linecap="round">
+                <g stroke="url(#footWeft)"><line x1="6" y1="11.5" x2="26" y2="11.5" /><line x1="6" y1="20.5" x2="26" y2="20.5" /></g>
+                <g stroke="url(#footWarp)"><line x1="11.5" y1="6" x2="11.5" y2="26" /><line x1="20.5" y1="6" x2="20.5" y2="26" /></g>
+                <g stroke="url(#footWeft)"><line x1="17.5" y1="11.5" x2="23.5" y2="11.5" /><line x1="8.5" y1="20.5" x2="14.5" y2="20.5" /></g>
               </g>
             </svg>
             <span>Specloom</span><span class="zh" data-i18n="hero.productZh">经纬</span>
