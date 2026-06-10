@@ -1,6 +1,6 @@
 /*
  * i18n/en.js — English dictionary.
- * Structure MUST stay symmetric with i18n/zh.js (NFR-I1 / AC-3.2 / AC-8.2).
+ * Structure MUST stay symmetric with i18n/zh.js.
  */
 (function () {
   "use strict";
@@ -10,9 +10,9 @@
   NS.dict.en = {
     meta: {
       htmlLang: "en",
-      title: "Specloom · Spec-Driven Development Lifecycle Orchestrator",
+      title: "Specloom · Spec-Driven Development Pipeline for VS Code",
       description:
-        "Specloom is an AI-native, spec-driven development (SDD) software lifecycle orchestrator. The spec is the single source of truth.",
+        "Specloom is a VS Code extension that takes a requirement through a configurable pipeline — spec, prototype, design, code and tests — each stage auto-generated and advanced through review gates. The spec is the single source of truth.",
     },
 
     nav: {
@@ -20,7 +20,6 @@
       why: "Why",
       how: "Workflow",
       install: "Install",
-      github: "GitHub",
       menu: "Toggle navigation",
     },
 
@@ -33,81 +32,81 @@
     },
 
     hero: {
-      badge: "AI-native · Spec-Driven Development",
+      badge: "VS Code extension · Spec-Driven Development",
       product: "Specloom",
       productZh: "经纬",
       titleLead: "Weave specs into",
       titleGrad: "shipped software",
       tagline:
-        "An AI-native, spec-driven development orchestrator — the spec is the single source of truth that runs the pipeline from requirement to release.",
+        "A VS Code extension that walks a requirement through a configurable pipeline, from spec to delivery. The spec is the single source of truth — change it upstream and the downstream rebuilds.",
       primaryCta: { label: "Install", target: "#install" },
-      secondaryCta: { label: "View on GitHub" },
+      secondaryCta: { label: "See the workflow" },
       loomAlt: "Warp-and-weft loom motif",
     },
 
     what: {
       eyebrow: "What it is",
       heading: "The spec is the loom that runs everything",
-      lede: "Specloom is an AI-native orchestrator for spec-driven development (SDD). Instead of scattered docs and prompts, a single living spec drives the whole lifecycle.",
+      lede: "Inside VS Code, Specloom collapses scattered docs and prompts into one living spec — requirements, prototypes, design, code and tests all derive from it and flow through a single panel.",
       cards: [
         {
           icon: "spec",
           title: "Single source of truth",
-          desc: "Requirements, prototypes, design and tests all derive from one living spec — no drift between intent and implementation.",
+          desc: "Requirements, prototypes, design, code and tests all derive from one living spec. Change it upstream and the downstream is marked stale and rebuilt — no drift between intent and implementation.",
         },
         {
           icon: "ai",
           title: "AI across the lifecycle",
-          desc: "AI runs every stage — requirement → spec/prototype → design → code → test → release — under SDD, not a bolt-on assistant.",
+          desc: "Requirement → spec/prototype → design → code → test → release: AI produces the artifact at every stage, not as a bolt-on assistant. Defaults to Claude Code, and also supports VS Code language models and OpenAI-compatible endpoints.",
         },
         {
           icon: "pipe",
-          title: "Configurable pipeline",
-          desc: "Compose each stage and choose where automation hands off to a human. The pipeline bends to your team, not the other way round.",
+          title: "Right inside VS Code",
+          desc: "A board and pipeline detail in one view keep every work item's progress visible. Artifacts land in your workspace's .lifecycle/ folder — commit them with git, share them with the team.",
         },
       ],
     },
 
     why: {
       eyebrow: "Why it matters",
-      heading: "Two modes, one source of truth",
-      lede: "Ship trivial work in one shot; gate the risky work stage by stage. The same spec powers both — you only choose how much human review to weave in.",
+      heading: "Two rhythms, one source of truth",
+      lede: "Ship trivial work in one shot; gate the critical work stage by stage. The same spec powers both — you only choose how much human review to weave in.",
       simple: {
         tag: "Simple",
         title: "One-shot delivery",
-        desc: "For low-risk, well-bounded requirements, Specloom takes the spec all the way to a shipped result in a single pass.",
+        desc: "For low-risk, well-bounded requirements, Specloom takes the spec all the way to a shipped result in a single pass, with no manual hand-offs.",
         points: [
-          "From requirement to release without manual hand-offs",
+          "From requirement to release, all auto-generated",
           "Fast feedback for prototypes and small changes",
           "Every artifact still traces back to the spec",
         ],
       },
       complex: {
-        tag: "Complex",
-        title: "Stage-by-stage human review",
-        desc: "For high-stakes work, insert human gates at any stage so people approve before the pipeline moves on.",
+        tag: "Standard",
+        title: "Critical work, reviewed stage by stage",
+        desc: "For high-stakes work, place a human gate at any stage; the pipeline resumes only after a person approves — or sends it back for revision.",
         points: [
-          "Human review gates at spec, design and release",
-          "Approvals are recorded against the spec",
-          "Automation resumes the moment a gate is cleared",
+          "Three gate types: human review / command check / auto-pass",
+          "Rejections flow back into the next generation pass",
+          "Approvals and lineage stay fully traceable and auditable",
         ],
       },
     },
 
     pipeline: {
       eyebrow: "How it works",
-      heading: "A configurable lifecycle pipeline",
-      lede: "Six stages, end to end. Switch modes to see where the pipeline runs automatically and where a human reviews before it continues.",
+      heading: "A configurable development pipeline",
+      lede: "Six stages, end to end. Switch the mode to see where the pipeline runs automatically and where a human reviews before it continues.",
       modeSimpleLabel: "Simple — one shot",
-      modeComplexLabel: "Complex — human review",
+      modeComplexLabel: "Standard — human review",
       modeAria: "Pipeline mode",
       stages: [
-        { name: "Requirements", desc: "Capture intent as a structured, machine-readable spec." },
-        { name: "Spec / Prototype", desc: "Generate the spec and an interactive prototype to review." },
-        { name: "Design", desc: "Derive technical design, architecture and interfaces." },
-        { name: "Code", desc: "Implement runnable code straight from the approved spec." },
-        { name: "Test", desc: "Generate and run acceptance tests against the spec." },
-        { name: "Release", desc: "Package and ship, with the spec as the audit trail." },
+        { name: "Requirement", desc: "Capture intent as a structured, reviewable requirement and spec." },
+        { name: "Spec / Prototype", desc: "Generate the spec and an interactive prototype to click through and review." },
+        { name: "Design", desc: "Derive the technical design, architecture diagrams and interfaces from the spec." },
+        { name: "Code", desc: "Implement runnable code in your workspace, straight from the approved spec." },
+        { name: "Test", desc: "Generate acceptance tests against the spec and run them." },
+        { name: "Release", desc: "Package and ship, with the spec and artifacts as the audit trail." },
       ],
       legend: { auto: "Auto", human: "Human review" },
       legendNote: "Gates shown for the selected mode. Every stage is configurable.",
@@ -115,34 +114,28 @@
 
     install: {
       eyebrow: "Get started",
-      heading: "Install and weave your first spec",
-      lede: "Specloom is open source and zero-dependency to try. Copy the command, run it, and start from a spec.",
+      heading: "Install the extension, weave your first spec",
+      lede: "Specloom is a VS Code extension and defaults to Claude Code as its AI engine. Set up the AI engine first, then create a work item and run the pipeline.",
       copyLabel: "Copy",
       copiedLabel: "Copied",
       copyAria: "Copy install command",
-      placeholderNote: "Placeholder — final install command pending confirmation.",
-      infoTitle: "Open source, yours to run",
+      placeholderNote: "",
+      infoTitle: "Runs inside VS Code",
       infoText:
-        "Read the source, file issues, and self-host the docs. Everything you need to evaluate the project lives on GitHub.",
-      docsCta: "Read the docs",
-      githubCta: "Star on GitHub",
+        "Install Specloom from the VS Code Extensions panel, then run “Specloom: Configure AI (guided)” from the Command Palette to connect it. Create a work item in the sidebar and hit “▶ Run pipeline” — data lives in your workspace's .lifecycle/, ready to commit with git.",
+      docsCta: "See the workflow",
     },
 
     footer: {
-      tagline: "An AI-native, spec-driven development lifecycle orchestrator. The spec is the single source of truth.",
-      colProduct: "Product",
-      colResource: "Resources",
+      tagline: "A spec-driven development pipeline inside VS Code. The spec is the single source of truth.",
+      colProduct: "Navigation",
       links: {
         what: "What it is",
         why: "Why Specloom",
         how: "Workflow",
         install: "Install",
-        github: "GitHub repository",
-        docs: "Documentation",
-        license: "License",
       },
-      copyright: "© 2026 Specloom (经纬). Open source.",
-      licenseLabel: "License",
+      copyright: "© 2026 Specloom (经纬)",
     },
   };
 })();

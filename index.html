@@ -6,9 +6,9 @@
   <!-- 内容安全策略：禁止内联外源脚本与远程资源，契合「零第三方运行时依赖」(NFR-S3/NFR-P2) -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; base-uri 'none'; form-action 'none'" />
-  <title data-i18n="meta.title">Specloom · Spec-Driven Development Lifecycle Orchestrator</title>
+  <title data-i18n="meta.title">Specloom · Spec-Driven Development Pipeline for VS Code</title>
   <meta name="description" data-i18n-attr="content:meta.description"
-        content="Specloom is an AI-native, spec-driven development (SDD) software lifecycle orchestrator. The spec is the single source of truth." />
+        content="Specloom is a VS Code extension that takes a requirement through a configurable pipeline — spec, prototype, design, code and tests — each stage auto-generated and advanced through review gates. The spec is the single source of truth." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -54,9 +54,7 @@
           <button type="button" id="langEn" data-lang="en" data-i18n="lang.en"
                   data-i18n-attr="aria-label:lang.enAria" aria-pressed="true">EN</button>
         </div>
-        <a class="btn btn-ghost btn-sm nav-github" data-cfg-href="githubUrl"
-           target="_blank" rel="noopener noreferrer"
-           data-i18n="nav.github" data-i18n-attr="aria-label:nav.github">GitHub</a>
+        <a class="btn btn-primary btn-sm" href="#install" data-i18n="nav.install">Install</a>
       </div>
 
       <button type="button" class="nav-toggle" id="navToggle"
@@ -71,8 +69,6 @@
         <a href="#why" data-i18n="nav.why">Why</a>
         <a href="#how" data-i18n="nav.how">Workflow</a>
         <a href="#install" data-i18n="nav.install">Install</a>
-        <a class="m-github" data-cfg-href="githubUrl" target="_blank" rel="noopener noreferrer"
-           data-i18n="nav.github">GitHub</a>
       </div>
     </div>
   </header>
@@ -92,8 +88,7 @@
         </p>
         <div class="hero-cta">
           <a class="btn btn-primary" id="heroPrimary" href="#install" data-i18n="hero.primaryCta.label">Install</a>
-          <a class="btn btn-ghost" id="heroSecondary" data-cfg-href="githubUrl"
-             target="_blank" rel="noopener noreferrer" data-i18n="hero.secondaryCta.label">View on GitHub</a>
+          <a class="btn btn-ghost" id="heroSecondary" href="#how" data-i18n="hero.secondaryCta.label">See the workflow</a>
         </div>
 
         <!-- 经纬装饰：编织经线/纬线（纯 SVG，装饰性） -->
@@ -199,12 +194,9 @@
           </div>
 
           <div class="install-info">
-            <h3 data-i18n="install.infoTitle">Open source, yours to run</h3>
+            <h3 data-i18n="install.infoTitle">Runs inside VS Code</h3>
             <p data-i18n="install.infoText"></p>
-            <a class="btn btn-ghost" data-cfg-href="docsUrl" target="_blank" rel="noopener noreferrer"
-               data-i18n="install.docsCta">Read the docs</a>
-            <a class="btn btn-primary" data-cfg-href="githubUrl" target="_blank" rel="noopener noreferrer"
-               data-i18n="install.githubCta">Star on GitHub</a>
+            <a class="btn btn-ghost" href="#how" data-i18n="install.docsCta">See the workflow</a>
           </div>
         </div>
       </div>
@@ -230,27 +222,17 @@
 
         <div class="foot-links">
           <div class="foot-col">
-            <h4 data-i18n="footer.colProduct">Product</h4>
+            <h4 data-i18n="footer.colProduct">Navigation</h4>
             <a href="#what" data-i18n="footer.links.what">What it is</a>
             <a href="#why" data-i18n="footer.links.why">Why Specloom</a>
             <a href="#how" data-i18n="footer.links.how">Workflow</a>
             <a href="#install" data-i18n="footer.links.install">Install</a>
           </div>
-          <div class="foot-col">
-            <h4 data-i18n="footer.colResource">Resources</h4>
-            <a class="foot-github" data-cfg-href="githubUrl" target="_blank" rel="noopener noreferrer"
-               data-i18n="footer.links.github">GitHub repository</a>
-            <a data-cfg-href="docsUrl" target="_blank" rel="noopener noreferrer"
-               data-i18n="footer.links.docs">Documentation</a>
-            <a data-cfg-href="githubUrl" target="_blank" rel="noopener noreferrer"
-               data-i18n="footer.links.license">License</a>
-          </div>
         </div>
       </div>
 
       <div class="foot-bottom">
-        <span data-i18n="footer.copyright">© 2026 Specloom (经纬). Open source.</span>
-        <span><span data-i18n="footer.licenseLabel">License</span>: <span id="licenseType">TBD</span></span>
+        <span data-i18n="footer.copyright">© 2026 Specloom (经纬)</span>
       </div>
     </div>
   </footer>
