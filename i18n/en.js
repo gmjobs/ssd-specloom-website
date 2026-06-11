@@ -67,7 +67,7 @@
     flow: {
       eyebrow: "From idea to delivery",
       heading: "Weave tangled requirements into shipped artifacts",
-      lede: "Scattered human requirements and ideas go in; Specloom uses the spec as its loom, weaving them — stage by stage — into clean, traceable deliverables.",
+      lede: "Scattered requirements and ideas go in; with the spec as the single source of truth, Specloom turns out spec, design, code and tests — clean and traceable, stage by stage.",
       reqLabel: "Requirements & ideas",
       assetLabel: "Deliverables",
       brandSub: "The spec is the loom · weaving delivery",
