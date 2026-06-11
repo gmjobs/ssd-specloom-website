@@ -93,64 +93,6 @@
   </header>
 
   <main id="top">
-    <!-- ============ HERO ============ -->
-    <section class="hero" aria-labelledby="heroTitle">
-      <div class="wrap">
-        <span class="badge"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.badge">AI-native · Spec-Driven Development</span></span>
-        <h1 class="title" id="heroTitle">
-          <span data-i18n="hero.titleLead">Weave specs into</span>
-          <span class="grad" data-i18n="hero.titleGrad">shipped software</span>
-        </h1>
-        <p class="title-zh" data-i18n="hero.productZh" aria-hidden="true">经纬</p>
-        <p class="lede" data-i18n="hero.tagline">
-          An AI-native, spec-driven development orchestrator — the spec is the single source of truth.
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" id="heroPrimary" href="#install" data-i18n="hero.primaryCta.label">Install</a>
-          <a class="btn btn-ghost" id="heroSecondary" href="#how" data-i18n="hero.secondaryCta.label">See the workflow</a>
-        </div>
-
-        <!-- 信任条：三个核心事实 -->
-        <div class="hero-meta">
-          <span data-i18n="hero.meta1">规格为唯一事实源</span>
-          <span class="sep" aria-hidden="true">·</span>
-          <span data-i18n="hero.meta2">可配置门禁与档位</span>
-          <span class="sep" aria-hidden="true">·</span>
-          <span data-i18n="hero.meta3">需求全程可追溯</span>
-        </div>
-
-        <!-- 产品视觉：一份规格 → AI 派生的产物（纯 HTML/CSS，零依赖） -->
-        <div class="showcase">
-          <div class="window" role="img" data-i18n-attr="aria-label:show.alt" aria-label="Specloom：从规格派生产物的示意">
-            <div class="win-bar">
-              <span class="d r" aria-hidden="true"></span><span class="d y" aria-hidden="true"></span><span class="d g" aria-hidden="true"></span>
-              <span class="win-title">spec.md</span>
-              <span class="win-tag" data-i18n="show.winTag">Specloom</span>
-            </div>
-            <div class="win-body">
-              <div class="codecol">
-<pre class="show-code"><span class="cm"># <span data-i18n="show.specTitle">需求：邮箱登录</span></span>
-<span class="kw" data-i18n="show.specGoal">## 目标：用户用邮箱 + 密码登录</span>
-<span class="ln">- AC1 <span data-i18n="show.ac1">校验邮箱格式，错误即时提示</span></span>
-<span class="ln">- AC2 <span data-i18n="show.ac2">连续 5 次失败锁定 10 分钟</span></span>
-<span class="cm" data-i18n="show.specNote"># 改规格 → 下游产物自动标记过期</span></pre>
-              </div>
-              <div class="gencol">
-                <div class="gen-head"><span class="gen-dot" aria-hidden="true"></span><span data-i18n="show.genHead">AI 据规格生成 / 落盘</span></div>
-                <ul class="gen-list">
-                  <li><i class="tk" aria-hidden="true"></i><code>prototype.html</code><span data-i18n="show.g1">可点击原型</span></li>
-                  <li><i class="tk" aria-hidden="true"></i><code>design.md</code><span data-i18n="show.g2">技术方案 + 架构图</span></li>
-                  <li><i class="tk" aria-hidden="true"></i><code>code.md</code><span data-i18n="show.g3">可运行实现</span></li>
-                  <li><i class="tk" aria-hidden="true"></i><code>tests.md</code><span data-i18n="show.g4">验收测试</span></li>
-                  <li><i class="tk" aria-hidden="true"></i><code>trace.md</code><span data-i18n="show.g5">需求追溯映射</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ FLOW MAP / 从需求到交付（3D 动态） ============ -->
     <section class="sec" id="flow" aria-labelledby="flowHeading">
       <div class="wrap">
@@ -178,11 +120,11 @@
             <path class="flow r" stroke="url(#flowLine)" d="M712 320 C800 360 820 380 878 387" marker-end="url(#flowArrow)" style="animation-delay:.8s"/>
           </svg>
 
-          <div class="node req" id="r1"><span class="em" aria-hidden="true">💡</span><span data-i18n="flow.req.r1">Idea</span></div>
-          <div class="node req" id="r2"><span class="em" aria-hidden="true">📝</span><span data-i18n="flow.req.r2">One-line need</span></div>
-          <div class="node req" id="r3"><span class="em" aria-hidden="true">💬</span><span data-i18n="flow.req.r3">Clarification</span></div>
-          <div class="node req" id="r4"><span class="em" aria-hidden="true">🗒️</span><span data-i18n="flow.req.r4">Spec draft</span></div>
-          <div class="node req" id="r5"><span class="em" aria-hidden="true">🎯</span><span data-i18n="flow.req.r5">Acceptance</span></div>
+          <div class="node req" id="r1"><span class="rdot" aria-hidden="true"></span><span data-i18n="flow.req.r1">Idea</span></div>
+          <div class="node req" id="r2"><span class="rdot" aria-hidden="true"></span><span data-i18n="flow.req.r2">One-line need</span></div>
+          <div class="node req" id="r3"><span class="rdot" aria-hidden="true"></span><span data-i18n="flow.req.r3">Clarification</span></div>
+          <div class="node req" id="r4"><span class="rdot" aria-hidden="true"></span><span data-i18n="flow.req.r4">Spec draft</span></div>
+          <div class="node req" id="r5"><span class="rdot" aria-hidden="true"></span><span data-i18n="flow.req.r5">Acceptance</span></div>
 
           <div class="scene" aria-hidden="true">
             <div class="glow"></div>
@@ -208,6 +150,64 @@
           <div class="lbl" id="lL" data-i18n="flow.reqLabel">Requirements &amp; ideas</div>
           <div class="lbl" id="lR" data-i18n="flow.assetLabel">Deliverables</div>
           <div class="lbl" id="lC"><b>Specloom 经纬</b><span data-i18n="flow.brandSub">The spec is the loom · weaving delivery</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="wrap">
+        <span class="badge"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.badge">VS Code 扩展 · 规格驱动研发</span></span>
+        <h1 class="title" id="heroTitle">
+          <span data-i18n="hero.titleLead">Weave specs into</span>
+          <span class="grad" data-i18n="hero.titleGrad">shipped software</span>
+        </h1>
+        <p class="title-zh" data-i18n="hero.productZh" aria-hidden="true">经纬</p>
+        <p class="lede" data-i18n="hero.tagline">
+          一个 VS Code 扩展——让一条需求沿可配置流水线，从规格到交付有序走完每一步。
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" id="heroPrimary" href="#install" data-i18n="hero.primaryCta.label">Install</a>
+          <a class="btn btn-ghost" id="heroSecondary" href="#how" data-i18n="hero.secondaryCta.label">See the workflow</a>
+        </div>
+
+        <!-- 信任条：三个核心事实 -->
+        <div class="hero-meta">
+          <span data-i18n="hero.meta1">规格为唯一事实源</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span data-i18n="hero.meta2">可配置门禁与档位</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span data-i18n="hero.meta3">需求全程可追溯</span>
+        </div>
+
+        <!-- 产品视觉：一份规格 → 据规格派生的产物（纯 HTML/CSS，零依赖） -->
+        <div class="showcase">
+          <div class="window" role="img" data-i18n-attr="aria-label:show.alt" aria-label="Specloom：从规格派生产物的示意">
+            <div class="win-bar">
+              <span class="d r" aria-hidden="true"></span><span class="d y" aria-hidden="true"></span><span class="d g" aria-hidden="true"></span>
+              <span class="win-title">spec.md</span>
+              <span class="win-tag" data-i18n="show.winTag">Specloom</span>
+            </div>
+            <div class="win-body">
+              <div class="codecol">
+<pre class="show-code"><span class="cm"># <span data-i18n="show.specTitle">需求：邮箱登录</span></span>
+<span class="kw" data-i18n="show.specGoal">## 目标：用户用邮箱 + 密码登录</span>
+<span class="ln">- AC1 <span data-i18n="show.ac1">校验邮箱格式，错误即时提示</span></span>
+<span class="ln">- AC2 <span data-i18n="show.ac2">连续 5 次失败锁定 10 分钟</span></span>
+<span class="cm" data-i18n="show.specNote"># 改规格 → 下游产物自动标记过期</span></pre>
+              </div>
+              <div class="gencol">
+                <div class="gen-head"><span class="gen-dot" aria-hidden="true"></span><span data-i18n="show.genHead">据规格生成 / 落盘</span></div>
+                <ul class="gen-list">
+                  <li><i class="tk" aria-hidden="true"></i><code>prototype.html</code><span data-i18n="show.g1">可点击原型</span></li>
+                  <li><i class="tk" aria-hidden="true"></i><code>design.md</code><span data-i18n="show.g2">技术方案 + 架构图</span></li>
+                  <li><i class="tk" aria-hidden="true"></i><code>code.md</code><span data-i18n="show.g3">可运行实现</span></li>
+                  <li><i class="tk" aria-hidden="true"></i><code>tests.md</code><span data-i18n="show.g4">验收测试</span></li>
+                  <li><i class="tk" aria-hidden="true"></i><code>trace.md</code><span data-i18n="show.g5">需求追溯映射</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

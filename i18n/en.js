@@ -49,14 +49,14 @@
     },
 
     show: {
-      alt: "Illustration: one spec.md, from which AI derives a prototype, design, code, tests and a traceability map",
+      alt: "Illustration: one spec.md, from which Specloom derives a prototype, design, code, tests and a traceability map",
       winTag: "Specloom",
       specTitle: "Requirement: Email login",
       specGoal: "## Goal: sign in with email + password",
       ac1: "Validate email format, inline errors",
       ac2: "Lock 10 min after 5 failed tries",
       specNote: "# Edit the spec → downstream artifacts flagged stale",
-      genHead: "AI generates from the spec",
+      genHead: "Generated from the spec",
       g1: "Clickable prototype",
       g2: "Design + architecture",
       g3: "Runnable implementation",
@@ -87,13 +87,13 @@
         },
         {
           icon: "ai",
-          title: "AI generates every artifact",
+          title: "Every artifact, auto-produced",
           desc: "Spec, clickable prototype, design, code, tests and traceability — each stage produces what it should, generated from the spec, not a bolt-on autocomplete.",
         },
         {
           icon: "verify",
           title: "Double-checked against hallucination",
-          desc: "After codegen, an independent agent can re-read the output and verify the symbols, dependencies and contracts it references actually exist — catching plausible-but-wrong before it lands.",
+          desc: "After codegen, an independent pass re-reads the output and verifies the symbols, dependencies and contracts it references actually exist — catching plausible-but-wrong before it lands.",
         },
         {
           icon: "model",
@@ -103,7 +103,7 @@
         {
           icon: "trace",
           title: "Traceable and auditable",
-          desc: "A requirement ↔ code ↔ test traceability map; artifacts record their lineage, and every gate approval is anchored to the spec — no AI black box.",
+          desc: "A requirement ↔ code ↔ test traceability map; artifacts record their lineage, and every gate approval is anchored to the spec — no generated-code black box.",
         },
         {
           icon: "local",
@@ -164,7 +164,7 @@
       lede: "Create a work item in the editor sidebar, hit “▶ Run pipeline”, and let the spec do the rest.",
       s1: {
         title: "Describe",
-        desc: "Write a title and a one-line requirement. AI drafts a structured spec and a clickable prototype for review.",
+        desc: "Write a title and a one-line requirement. Specloom auto-drafts a structured spec and a clickable prototype for review.",
       },
       s2: {
         title: "Review by profile",
@@ -190,7 +190,7 @@
     install: {
       eyebrow: "Get started",
       heading: "Install the extension, weave your first spec",
-      lede: "Specloom is a VS Code extension and defaults to Claude Code as its AI engine. Set up the AI engine first, then create a work item and run the pipeline.",
+      lede: "Specloom is a VS Code extension and defaults to Claude Code as its engine. Set up the engine first, then create a work item and run the pipeline.",
       copyLabel: "Copy",
       copiedLabel: "Copied",
       copyAria: "Copy install command",

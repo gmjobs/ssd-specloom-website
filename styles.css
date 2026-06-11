@@ -373,7 +373,7 @@ header.nav.scrolled{
   border:1.5px solid var(--line);border-radius:13px;background:linear-gradient(180deg,#12151f,#0e111a);
   color:var(--muted);font-size:15px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.35)}
 .flowmap .req{width:130px;height:52px;animation:fm-float 5s ease-in-out infinite}
-.flowmap .req .em{font-size:17px}
+.flowmap .req .rdot{width:7px;height:7px;border-radius:50%;background:var(--muted-2);flex:0 0 auto}
 .flowmap .asset{width:116px;height:66px;flex-direction:column;gap:2px;border-color:#33405e;color:var(--text)}
 .flowmap .asset .x{font-size:12px;color:var(--muted-2);font-weight:600}
 .flowmap .asset .nm{font-size:15px;font-weight:700}
@@ -398,18 +398,18 @@ header.nav.scrolled{
 
 .flowmap .scene{position:absolute;left:455px;top:165px;width:270px;height:270px;perspective:1200px}
 .flowmap .glow{position:absolute;inset:-40px;border-radius:50%;
-  background:radial-gradient(circle,rgba(176,107,255,.30),rgba(91,140,255,.12) 45%,transparent 68%);animation:fm-pulse 4.5s ease-in-out infinite}
+  background:radial-gradient(circle,rgba(176,107,255,.16),rgba(91,140,255,.06) 45%,transparent 70%);animation:fm-pulse 5.5s ease-in-out infinite}
 .flowmap .cube,.flowmap .cube *{transform-style:preserve-3d}
 .flowmap .cube{position:absolute;left:60px;top:55px;width:150px;height:150px;animation:fm-spin 20s linear infinite}
 .flowmap .face{position:absolute;width:150px;height:150px;border:2px solid rgba(255,255,255,.6);
   background:linear-gradient(135deg,rgba(91,140,255,.16),rgba(176,107,255,.12));
   background-image:repeating-linear-gradient(0deg,rgba(109,155,255,.18) 0 1.5px,transparent 1.5px 22px),repeating-linear-gradient(90deg,rgba(176,107,255,.18) 0 1.5px,transparent 1.5px 22px);
-  box-shadow:inset 0 0 30px rgba(120,160,255,.15)}
+  box-shadow:inset 0 0 22px rgba(120,160,255,.08)}
 .flowmap .f-fr{transform:translateZ(75px)}.flowmap .f-bk{transform:rotateY(180deg) translateZ(75px)}
 .flowmap .f-rt{transform:rotateY(90deg) translateZ(75px)}.flowmap .f-lt{transform:rotateY(-90deg) translateZ(75px)}
 .flowmap .f-tp{transform:rotateX(90deg) translateZ(75px)}.flowmap .f-bm{transform:rotateX(-90deg) translateZ(75px)}
 .flowmap .core{position:absolute;left:35px;top:35px;width:80px;height:80px}
-.flowmap .cface{position:absolute;width:80px;height:80px;border:1px solid rgba(255,255,255,.3);background:linear-gradient(135deg,rgba(91,140,255,.85),rgba(86,224,200,.75))}
+.flowmap .cface{position:absolute;width:80px;height:80px;border:1px solid rgba(255,255,255,.28);background:linear-gradient(135deg,rgba(91,140,255,.5),rgba(86,224,200,.38))}
 .flowmap .c-fr{transform:translateZ(40px)}.flowmap .c-bk{transform:rotateY(180deg) translateZ(40px)}
 .flowmap .c-rt{transform:rotateY(90deg) translateZ(40px)}.flowmap .c-lt{transform:rotateY(-90deg) translateZ(40px)}
 .flowmap .c-tp{transform:rotateX(90deg) translateZ(40px)}.flowmap .c-bm{transform:rotateX(-90deg) translateZ(40px)}
@@ -421,7 +421,7 @@ header.nav.scrolled{
 
 @keyframes fm-spin{from{transform:rotateX(-26deg) rotateY(0)}to{transform:rotateX(-26deg) rotateY(360deg)}}
 @keyframes fm-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-@keyframes fm-pulse{0%,100%{opacity:.65;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes fm-pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.62;transform:scale(1.03)}}
 @keyframes fm-dash{to{stroke-dashoffset:-26}}
 
 /* 等比缩放以适配窄屏（不溢出） */
