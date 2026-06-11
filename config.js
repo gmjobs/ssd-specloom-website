@@ -10,8 +10,8 @@
   var NS = (window.SPECLOOM = window.SPECLOOM || {});
 
   NS.CONFIG = {
-    // 无法识别浏览器语言时的回退默认语言（项目以中文为主，回退中文）
-    defaultLang: "zh",
+    // 默认显示语言：无显式偏好（localStorage）时一律用英文
+    defaultLang: "en",
 
     // 安装与配置命令：Specloom 是 VS Code 扩展，默认以 Claude Code 作为 AI 引擎。
     // 下列为「配置 AI 引擎」所需命令；扩展本身在 VS Code 扩展面板中安装。

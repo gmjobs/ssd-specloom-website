@@ -37,31 +37,19 @@
     this.lang = config.defaultLang;
   }
 
-  /** 检测优先级：localStorage > navigator.language > config.defaultLang（AC-8.4） */
+  /** 检测优先级：localStorage（显式偏好）> config.defaultLang（默认英文）。
+   *  注：按产品要求「默认英文显示」，已不再按 navigator.language 自动切换语言。 */
   I18nEngine.prototype.detectInitialLang = function () {
-    // 1) 已持久化偏好
+    // 1) 已持久化的显式偏好优先（隐私模式不可用则静默降级，NFR-E2）
     var stored = null;
     try {
       stored = window.localStorage.getItem(LS_KEY);
     } catch (e) {
-      stored = null; // 隐私模式不可用，静默降级（NFR-E2）
+      stored = null;
     }
     if (stored && SUPPORTED.indexOf(stored) !== -1) return stored;
 
-    // 2) 浏览器语言偏好
-    var langs = [];
-    if (navigator.languages && navigator.languages.length) {
-      langs = navigator.languages;
-    } else if (navigator.language) {
-      langs = [navigator.language];
-    }
-    for (var i = 0; i < langs.length; i++) {
-      var code = String(langs[i] || "").toLowerCase();
-      if (code.indexOf("zh") === 0) return "zh";
-      if (code.indexOf("en") === 0) return "en";
-    }
-
-    // 3) 回退默认语言（NFR-E3）
+    // 2) 无显式偏好：回退到默认语言（默认英文，NFR-E3）
     return SUPPORTED.indexOf(this.config.defaultLang) !== -1
       ? this.config.defaultLang
       : "en";
@@ -281,23 +269,35 @@
     var toggle = document.getElementById("navToggle");
     var menu = document.getElementById("mobileMenu");
     if (toggle && menu) {
+      var closeMenu = function () {
+        if (menu.hasAttribute("hidden")) return;
+        menu.setAttribute("hidden", "");
+        toggle.setAttribute("aria-expanded", "false");
+      };
       toggle.addEventListener("click", function () {
-        var open = menu.hasAttribute("hidden");
-        if (open) {
-          menu.removeAttribute("hidden");
-        } else {
-          menu.setAttribute("hidden", "");
-        }
-        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        var willOpen = menu.hasAttribute("hidden");
+        if (willOpen) menu.removeAttribute("hidden");
+        else menu.setAttribute("hidden", "");
+        toggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
       });
       // 点击菜单内任一链接后收起
       var mLinks = menu.querySelectorAll("a");
       for (var l = 0; l < mLinks.length; l++) {
-        mLinks[l].addEventListener("click", function () {
-          menu.setAttribute("hidden", "");
-          toggle.setAttribute("aria-expanded", "false");
-        });
+        mLinks[l].addEventListener("click", closeMenu);
       }
+      // Esc 关闭并把焦点交还触发按钮（可访问性）
+      document.addEventListener("keydown", function (e) {
+        if ((e.key === "Escape" || e.key === "Esc") && !menu.hasAttribute("hidden")) {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+      // 点击菜单与按钮之外的区域收起
+      document.addEventListener("click", function (e) {
+        if (menu.hasAttribute("hidden")) return;
+        if (menu.contains(e.target) || toggle.contains(e.target)) return;
+        closeMenu();
+      });
     }
 
     // 顶栏随滚动加深（专业感细节）
@@ -309,6 +309,19 @@
       };
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
+    }
+
+    // flowmap 离屏暂停：滚出视口时停掉 3D 无限动画，省移动端 GPU/电量（NFR-P2）
+    // 仅在支持 IntersectionObserver 时启用；不支持则保持原有「一直播放」行为，纯增益不回退
+    var flowmap = document.querySelector(".flowmap");
+    if (flowmap && "IntersectionObserver" in window) {
+      var fmObserver = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) flowmap.classList.remove("paused");
+          else flowmap.classList.add("paused");
+        }
+      }, { rootMargin: "120px" });
+      fmObserver.observe(flowmap);
     }
   };
 
