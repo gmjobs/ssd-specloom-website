@@ -71,8 +71,8 @@
       reqLabel: "Requirements & ideas",
       assetLabel: "Deliverables",
       brandSub: "The spec is the loom · weaving delivery",
-      req: { r1: "Idea", r2: "One-line need", r3: "Clarification", r4: "Spec draft", r5: "Acceptance" },
-      asset: { a1: "Spec", a2: "Prototype", a3: "Design", a4: "Code", a5: "Tests", a6: "Release" },
+      req: { r1: "Idea", r2: "One-line need", r3: "Clarification", r4: "Constraints", r5: "Acceptance" },
+      asset: { a1: "Spec", a2: "Prototype", a3: "Design", a4: "Code", a5: "Tests", a6: "Trace" },
     },
 
     what: {
