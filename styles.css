@@ -409,7 +409,14 @@ header.nav.scrolled{
 .flowmap .f-rt{transform:rotateY(90deg) translateZ(75px)}.flowmap .f-lt{transform:rotateY(-90deg) translateZ(75px)}
 .flowmap .f-tp{transform:rotateX(90deg) translateZ(75px)}.flowmap .f-bm{transform:rotateX(-90deg) translateZ(75px)}
 .flowmap .core{position:absolute;left:35px;top:35px;width:80px;height:80px}
-.flowmap .cface{position:absolute;width:80px;height:80px;border:1px solid rgba(255,255,255,.28);background:linear-gradient(135deg,rgba(91,140,255,.5),rgba(86,224,200,.38))}
+.flowmap .cface{position:absolute;width:80px;height:80px;border:1px solid rgba(120,160,255,.32);background:rgba(91,140,255,.05);overflow:hidden}
+/* 内核：自动织布机（经线竖、纬线梭子穿梭、织物自下生长） */
+.flowmap .loom{position:absolute;inset:7px;overflow:hidden}
+.flowmap .loom-warp{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(109,155,255,.6) 0 1.3px,transparent 1.3px 11px)}
+.flowmap .loom-weave{position:absolute;left:0;right:0;bottom:0;height:8%;background:repeating-linear-gradient(0deg,rgba(176,107,255,.55) 0 1.3px,transparent 1.3px 8px);animation:fm-weave 3.6s ease-in-out infinite}
+.flowmap .loom-shuttle{position:absolute;left:0;width:30%;height:2px;bottom:8%;border-radius:2px;
+  background:linear-gradient(90deg,transparent,#56e0c8,transparent);box-shadow:0 0 6px rgba(86,224,200,.85);
+  animation:fm-shuttle 1s linear infinite alternate,fm-rise 3.6s ease-in-out infinite}
 .flowmap .c-fr{transform:translateZ(40px)}.flowmap .c-bk{transform:rotateY(180deg) translateZ(40px)}
 .flowmap .c-rt{transform:rotateY(90deg) translateZ(40px)}.flowmap .c-lt{transform:rotateY(-90deg) translateZ(40px)}
 .flowmap .c-tp{transform:rotateX(90deg) translateZ(40px)}.flowmap .c-bm{transform:rotateX(-90deg) translateZ(40px)}
@@ -423,6 +430,9 @@ header.nav.scrolled{
 @keyframes fm-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 @keyframes fm-pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.62;transform:scale(1.03)}}
 @keyframes fm-dash{to{stroke-dashoffset:-26}}
+@keyframes fm-weave{0%{height:8%}86%{height:90%}100%{height:8%}}
+@keyframes fm-rise{0%{bottom:8%}86%{bottom:90%}100%{bottom:8%}}
+@keyframes fm-shuttle{0%{transform:translateX(0)}100%{transform:translateX(233%)}}
 
 /* 等比缩放以适配窄屏（不溢出） */
 @media (max-width:1220px){.flowmap{transform:scale(.92)}.flowmap-wrap{height:570px}}
