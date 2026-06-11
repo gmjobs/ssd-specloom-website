@@ -64,6 +64,17 @@
       g5: "Requirement ↔ code ↔ test trace",
     },
 
+    flow: {
+      eyebrow: "From idea to delivery",
+      heading: "Weave tangled requirements into shipped artifacts",
+      lede: "Scattered human requirements and ideas go in; Specloom uses the spec as its loom, weaving them — stage by stage — into clean, traceable deliverables.",
+      reqLabel: "Requirements & ideas",
+      assetLabel: "Deliverables",
+      brandSub: "The spec is the loom · weaving delivery",
+      req: { r1: "Idea", r2: "One-line need", r3: "Clarification", r4: "Spec draft", r5: "Acceptance" },
+      asset: { a1: "Spec", a2: "Prototype", a3: "Design", a4: "Code", a5: "Tests", a6: "Release" },
+    },
+
     what: {
       eyebrow: "What it is",
       heading: "Not just another autocomplete",
