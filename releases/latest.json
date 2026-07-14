@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "extensionId": "gmjobs.specloom",
+  "channel": "stable",
+  "version": "0.0.175",
+  "publishedAt": "2026-07-14T18:09:56.021Z",
+  "minVscodeVersion": "1.95.0",
+  "downloadUrl": "https://github.com/gmjobs/specloom/releases/download/v0.0.175/specloom-0.0.175.vsix",
+  "sha256": "6bf58abd280e2520a9992f83020438055390883287fa0941befcb3f234f8668a",
+  "releaseNotesUrl": "https://github.com/gmjobs/specloom/releases/tag/v0.0.175",
+  "mandatory": false
+}
