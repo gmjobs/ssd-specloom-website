@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "extensionId": "gmjobs.specloom",
   "channel": "stable",
-  "version": "0.0.177",
-  "publishedAt": "2026-07-14T18:55:52.161Z",
+  "version": "0.0.178",
+  "publishedAt": "2026-07-14T19:11:04.113Z",
   "minVscodeVersion": "1.95.0",
-  "downloadUrl": "https://github.com/gmjobs/ssd-specloom-website/releases/download/v0.0.177/specloom-0.0.177.vsix",
-  "sha256": "4a07e0853c0a5a3e2b44bfe4dfc71b8254b7fcbbb2c16dca010e6cf0915e996e",
-  "releaseNotesUrl": "https://github.com/gmjobs/ssd-specloom-website/releases/tag/v0.0.177",
+  "downloadUrl": "https://github.com/gmjobs/ssd-specloom-website/releases/download/v0.0.178/specloom-0.0.178.vsix",
+  "sha256": "b9b5fb736463a9506e22ff634848686d249d74def518ba22066e242b7705f944",
+  "releaseNotesUrl": "https://github.com/gmjobs/ssd-specloom-website/releases/tag/v0.0.178",
   "mandatory": false
 }
