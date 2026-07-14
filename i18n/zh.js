@@ -254,7 +254,7 @@
         p2: "首次向导会展示本机可用的 AI，并要求真实连接测试。当前支持：",
         opt1: "<b>CLI Agent：</b>Cursor Agent、Claude Code、OpenAI Codex；支持在明确授权后直接修改工作区。",
         opt2: "<b>模型/API：</b>OpenAI 兼容 API 与 VS Code Language Model；适合文本生成或由宿主提供的模型能力。",
-        note: "从 v0.0.176 开始，插件通过官网 stable 清单自动或手动检查更新，不依赖 Marketplace 判定版本。",
+        note: "插件通过官网 stable 清单自动或手动检查更新。发现新版后可确认一键下载、校验并安装，不会静默更新，也不依赖 Marketplace 判定版本。",
       },
       board: {
         h: "需求孵化与交付看板",

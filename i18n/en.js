@@ -254,7 +254,7 @@
         p2: "Onboarding shows the AI tools available on your machine and requires a real connection test. Supported options include:",
         opt1: "<b>CLI agents:</b> Cursor Agent, Claude Code and OpenAI Codex, with direct workspace writes only after explicit authorization.",
         opt2: "<b>Models / APIs:</b> OpenAI-compatible APIs and VS Code Language Models for text generation or host-provided model capabilities.",
-        note: "Since v0.0.176, the extension checks the official stable manifest automatically or manually instead of relying on Marketplace version detection.",
+        note: "The extension checks the official stable manifest automatically or manually. When an update is found, you can confirm once to download, verify and install it. Updates are never installed silently and do not rely on Marketplace version detection.",
       },
       board: {
         h: "Idea incubation & delivery board",
