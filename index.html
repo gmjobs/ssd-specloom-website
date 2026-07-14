@@ -6,9 +6,9 @@
   <!-- 内容安全策略：禁止内联外源脚本与远程资源，契合「零第三方运行时依赖」(NFR-S3/NFR-P2) -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; base-uri 'none'; form-action 'none'" />
-  <title data-i18n="meta.title">Specloom · Spec-Driven Development Pipeline for VS Code</title>
+  <title data-i18n="meta.title">Specloom · Visible, Verifiable AI Delivery in VS Code</title>
   <meta name="description" data-i18n-attr="content:meta.description"
-        content="Specloom is a VS Code extension that takes a requirement through a configurable pipeline — spec, prototype, design, code and tests — each stage auto-generated and advanced through review gates. The spec is the single source of truth." />
+        content="Specloom is an AI delivery workspace for VS Code and Cursor. It turns rough ideas into explicit tasks and keeps requirements, implementation, tests, releases and execution history visible, verifiable and recoverable." />
 
   <link rel="canonical" href="https://specloom.tech/" />
 
@@ -20,15 +20,15 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://specloom.tech/" />
   <meta property="og:site_name" content="Specloom" />
-  <meta property="og:title" content="Specloom 经纬 · VS Code 里的规格驱动研发流水线" />
-  <meta property="og:description" content="一个 VS Code 扩展：把需求沿可配置流水线，逐阶段沉淀为规格、原型、技术方案、代码与测试，每阶段自动产出、按门禁评审推进。规格是唯一事实源。" />
+  <meta property="og:title" content="Specloom 经纬 · 看得见、可验证的 AI 研发工作台" />
+  <meta property="og:description" content="把模糊想法澄清为明确任务，让需求、规格、开发、测试、发布和历史记录全程可查看、可验证、可恢复。" />
   <meta property="og:image" content="https://specloom.tech/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://specloom.tech/og.png" />
-  <meta name="twitter:title" content="Specloom 经纬 · 规格驱动研发流水线" />
-  <meta name="twitter:description" content="VS Code 里把需求逐阶段沉淀为规格、原型、方案、代码与测试，规格是唯一事实源。" />
+  <meta name="twitter:title" content="Specloom 经纬 · 看得见的 AI 研发与交付" />
+  <meta name="twitter:description" content="在 VS Code / Cursor 中把模糊想法变成明确任务，完成有证据，历史可恢复。" />
 
   <link rel="stylesheet" href="styles.css?v=20260715a" />
 </head>
@@ -99,7 +99,7 @@
     <section class="sec" id="flow" aria-labelledby="flowHeading">
       <div class="wrap">
         <p class="eyebrow" data-i18n="flow.eyebrow">From idea to delivery</p>
-        <h2 id="flowHeading" data-i18n="flow.heading">Weave tangled requirements into shipped artifacts</h2>
+        <h2 id="flowHeading" data-i18n="flow.heading">Weave scattered ideas into trusted delivery</h2>
         <p class="sec-lede" data-i18n="flow.lede"></p>
       </div>
       <div class="flowmap-wrap">
@@ -147,7 +147,7 @@
 
           <div class="lbl" id="lL" data-i18n="flow.reqLabel">Requirements &amp; ideas</div>
           <div class="lbl" id="lR" data-i18n="flow.assetLabel">Deliverables</div>
-          <div class="lbl" id="lC"><b>Specloom 经纬</b><span data-i18n="flow.brandSub">The spec is the loom · weaving delivery</span></div>
+          <div class="lbl" id="lC"><b>Specloom 经纬</b><span data-i18n="flow.brandSub">Compile intent into tasks · turn tasks into delivery</span></div>
         </div>
       </div>
     </section>
@@ -155,14 +155,14 @@
     <!-- ============ HERO ============ -->
     <section class="hero" aria-labelledby="heroTitle">
       <div class="wrap">
-        <span class="badge"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.badge">VS Code 扩展 · 规格驱动研发</span></span>
+        <span class="badge"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.badge">VS Code / Cursor · AI 研发工作台</span></span>
         <h1 class="title" id="heroTitle">
-          <span data-i18n="hero.titleLead">Weave specs into</span>
-          <span class="grad" data-i18n="hero.titleGrad">shipped software</span>
+          <span data-i18n="hero.titleLead">Turn rough ideas into</span>
+          <span class="grad" data-i18n="hero.titleGrad">trusted delivery</span>
         </h1>
         <p class="title-zh" data-i18n="hero.productZh" aria-hidden="true">经纬</p>
         <p class="lede" data-i18n="hero.tagline">
-          一个 VS Code 扩展——让一条需求沿可配置流水线，从规格到交付有序走完每一步。
+          从一句想法开始，逐步形成明确需求与可执行任务。每个节点都能看到输入、输出、执行记录和验证结果。
         </p>
         <div class="hero-cta">
           <a class="btn btn-primary" id="heroPrimary" href="#install" data-i18n="hero.primaryCta.label">Install</a>
@@ -171,11 +171,11 @@
 
         <!-- 信任条：三个核心事实 -->
         <div class="hero-meta">
-          <span data-i18n="hero.meta1">规格为唯一事实源</span>
+          <span data-i18n="hero.meta1">任务过程不再黑盒</span>
           <span class="sep" aria-hidden="true">·</span>
-          <span data-i18n="hero.meta2">可配置门禁与档位</span>
+          <span data-i18n="hero.meta2">完成必须有验证证据</span>
           <span class="sep" aria-hidden="true">·</span>
-          <span data-i18n="hero.meta3">需求全程可追溯</span>
+          <span data-i18n="hero.meta3">历史交付可恢复</span>
         </div>
 
         <!-- 产品视觉：一份规格 → 据规格派生的产物（纯 HTML/CSS，零依赖） -->
@@ -214,7 +214,7 @@
     <section class="sec" id="what" aria-labelledby="whatHeading">
       <div class="wrap">
         <p class="eyebrow" data-i18n="what.eyebrow">What it is</p>
-        <h2 id="whatHeading" data-i18n="what.heading">The spec is the loom that runs everything</h2>
+        <h2 id="whatHeading" data-i18n="what.heading">Not another invisible AI black box</h2>
         <p class="sec-lede" data-i18n="what.lede"></p>
         <div class="grid grid-3" id="whatCards"><!-- 由 app.js 按字典渲染 --></div>
       </div>
@@ -224,7 +224,7 @@
     <section class="sec" id="why" aria-labelledby="whyHeading">
       <div class="wrap">
         <p class="eyebrow" data-i18n="why.eyebrow">Why it matters</p>
-        <h2 id="whyHeading" data-i18n="why.heading">Two modes, one source of truth</h2>
+        <h2 id="whyHeading" data-i18n="why.heading">Less ceremony for simple work, more control for critical work</h2>
         <p class="sec-lede" data-i18n="why.lede"></p>
         <div class="modes">
           <article class="mode simple">
@@ -271,7 +271,7 @@
     <section class="sec" id="start" aria-labelledby="startHeading">
       <div class="wrap">
         <p class="eyebrow" data-i18n="steps.eyebrow">In practice</p>
-        <h2 id="startHeading" data-i18n="steps.heading">Three steps, sentence to shippable</h2>
+        <h2 id="startHeading" data-i18n="steps.heading">Three steps from an idea to verifiable delivery</h2>
         <p class="sec-lede" data-i18n="steps.lede"></p>
         <div class="steps">
           <div class="step">
@@ -297,7 +297,7 @@
     <section class="sec" id="install" aria-labelledby="installHeading">
       <div class="wrap">
         <p class="eyebrow" data-i18n="install.eyebrow">Get started</p>
-        <h2 id="installHeading" data-i18n="install.heading">Install and weave your first spec</h2>
+        <h2 id="installHeading" data-i18n="install.heading">Install the extension and start real work</h2>
         <p class="sec-lede" data-i18n="install.lede"></p>
 
         <div class="install-wrap">

@@ -234,8 +234,8 @@
   function validReleaseManifest(value) {
     if (!value || typeof value !== "object" || value.schemaVersion !== 1 || value.extensionId !== "gmjobs.specloom" || value.channel !== "stable") return false;
     if (!/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(value.version) || !/^[a-f0-9]{64}$/.test(value.sha256)) return false;
-    var expectedDownload = "https://github.com/gmjobs/specloom/releases/download/v" + value.version + "/specloom-" + value.version + ".vsix";
-    var expectedNotes = "https://github.com/gmjobs/specloom/releases/tag/v" + value.version;
+    var expectedDownload = "https://github.com/gmjobs/ssd-specloom-website/releases/download/v" + value.version + "/specloom-" + value.version + ".vsix";
+    var expectedNotes = "https://github.com/gmjobs/ssd-specloom-website/releases/tag/v" + value.version;
     return value.downloadUrl === expectedDownload && value.releaseNotesUrl === expectedNotes && !isNaN(Date.parse(value.publishedAt));
   }
 

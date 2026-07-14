@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; base-uri 'none'; form-action 'none'" />
-  <title>Specloom 文档 · 快速上手与功能说明</title>
-  <meta name="description" content="Specloom 使用文档：在 VS Code 内把需求沿规格驱动流水线推进——安装与 AI 配置、看板与详情面板、SDD 流水线、档位与门禁、进阶能力、数据存储与常见问题。" />
+  <title>Specloom 文档 · 从想法到可信交付</title>
+  <meta name="description" content="Specloom 使用文档：VSIX 安装、首次环境检查、AI 连接、需求孵化、任务执行路径、门禁、交付记录与常见问题。" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#0a0c12" />
   <link rel="stylesheet" href="styles.css?v=20260715a" />
@@ -50,7 +50,7 @@
     <div class="doc-wrap">
       <a class="doc-back" href="index.html" data-i18n="guide.back">← 返回首页</a>
       <h1 data-i18n="guide.title">Specloom 文档</h1>
-      <p class="doc-sub" data-i18n="guide.sub">在 VS Code 内，让一条需求沿可配置的规格驱动流水线，有序走完从规格到交付的每一步。本页覆盖安装、日常使用与进阶能力。</p>
+      <p class="doc-sub" data-i18n="guide.sub">从一句想法开始，在 VS Code / Cursor 中形成明确需求与可执行任务，并沿完整路径交付。本页覆盖安装、首次设置、日常使用与进阶能力。</p>
 
       <nav class="doc-toc" data-i18n-attr="aria-label:guide.tocLabel" aria-label="目录">
         <h4 data-i18n="guide.tocLabel">目录</h4>
@@ -69,50 +69,51 @@
       <section id="quickstart">
         <h2 data-i18n="guide.quickstart.h">快速开始</h2>
         <ol class="steps-ol">
-          <li data-i18n-html="guide.quickstart.s1"><b>配置 AI：</b>命令面板运行 <code>Specloom: 配置 AI（引导）</code>（默认使用 Claude Code CLI，需先 <code>claude login</code>）。</li>
-          <li data-i18n-html="guide.quickstart.s2"><b>新建工作项：</b>在侧边栏 <b>Specloom</b> 中创建，填写标题与一句话需求。</li>
-          <li data-i18n-html="guide.quickstart.s3"><b>运行流水线：</b>在详情页点击 <b>▶ 运行流水线</b>——简单档一路自动产出；标准档在每道评审门停下，由你审批通过或驳回修订。</li>
+          <li data-i18n-html="guide.quickstart.s1"><b>完成首次设置：</b>打开 Specloom，按向导完成环境检测、选择 AI、连接测试和项目确认。</li>
+          <li data-i18n-html="guide.quickstart.s2"><b>开始一件事：</b>只有想法就选「记录一个想法」；需求已经明确则直接创建工作项。</li>
+          <li data-i18n-html="guide.quickstart.s3"><b>查看并运行任务：</b>在详情页确认任务路径后运行。点开任一节点可查看说明、内容、执行结果和历史尝试。</li>
         </ol>
       </section>
 
       <section id="install">
         <h2 data-i18n="guide.install.h">安装与 AI 配置</h2>
-        <p data-i18n-html="guide.install.p1">Specloom 是一个 VS Code 扩展。在 VS Code 扩展面板中安装后，需要配置一个 AI 提供方。默认走 <b>Claude Code CLI</b>，在本机安装并登录：</p>
-        <pre><code data-i18n="guide.install.code">npm i -g @anthropic-ai/claude-code
-claude login</code></pre>
-        <p data-i18n-html="guide.install.p2">若不想用 CLI，可在设置里把 <code>lifecycle.aiProvider</code> 改为：</p>
+        <p data-i18n-html="guide.install.p1">Specloom 目前通过公开 VSIX 安装。下载官网最新安装包后，在 VS Code / Cursor 扩展页右上角选择「从 VSIX 安装…」，安装完成后重载窗口：</p>
+        <pre><code data-i18n="guide.install.code">1. 下载 specloom-&lt;version&gt;.vsix
+2. 扩展页 → … → 从 VSIX 安装…
+3. Developer: Reload Window</code></pre>
+        <p data-i18n-html="guide.install.p2">首次向导会展示本机可用的 AI，并要求真实连接测试。当前支持：</p>
         <ul>
-          <li data-i18n-html="guide.install.opt1"><code>vscode-lm</code>：复用 GitHub Copilot 等已授权的 VS Code 语言模型（此模式不支持「直接写文件」）。</li>
-          <li data-i18n-html="guide.install.opt2"><code>openai-compatible</code>：对接通义 / 千帆 / 豆包 / DeepSeek 等 OpenAI 兼容端点。</li>
+          <li data-i18n-html="guide.install.opt1"><b>CLI Agent：</b>Cursor Agent、Claude Code、OpenAI Codex；支持在明确授权后直接修改工作区。</li>
+          <li data-i18n-html="guide.install.opt2"><b>模型/API：</b>OpenAI 兼容 API 与 VS Code Language Model；适合文本生成或由宿主提供的模型能力。</li>
         </ul>
-        <div class="note" data-i18n="guide.install.note">切换设置即时生效，无需重载窗口。</div>
+        <div class="note" data-i18n="guide.install.note">从 v0.0.176 开始，插件通过官网 stable 清单检查更新，不依赖 Marketplace 判定版本。</div>
       </section>
 
       <section id="board">
         <h2 data-i18n="guide.board.h">看板与详情面板</h2>
-        <p data-i18n-html="guide.board.p1">左侧活动栏的 <b>Specloom</b> 图标打开「工作项看板」，工作项按五个阶段分组：</p>
-        <pre><code data-i18n="guide.board.code1">💡 需求 → 📖 产品 → 💻 研发 → 🧪 测试 → ✅ 完成</code></pre>
-        <p data-i18n="guide.board.p2">每个工作项一行，右侧显示 SDD 进度小标记与更新日期，例如：</p>
-        <pre><code data-i18n="guide.board.code2">登录功能    ✓规 ✓方 ○码 ○测  ·  6/2</code></pre>
-        <p data-i18n-html="guide.board.p3">含义：<code>✓规</code>=已有规格、<code>✓方</code>=已生成技术方案、<code>○码</code>=代码骨架未生成、<code>○测</code>=测试用例未生成。点任意工作项打开详情面板，可编辑标题/需求/规格、点击进度条圆点切换阶段，并驱动整条 SDD 流水线。</p>
+        <p data-i18n-html="guide.board.p1">左侧活动栏包含需求孵化与交付看板两个入口。工作项沿七个生命周期阶段推进：</p>
+        <pre><code data-i18n="guide.board.code1">需求 → 产品 → 研发 → 测试 → 发布 → 运维 → 完成</code></pre>
+        <p data-i18n="guide.board.p2">每个工作项显示当前阶段和状态；重新打开项目或工作项时，原来的任务、产物和执行记录会继续显示。</p>
+        <pre><code data-i18n="guide.board.code2">工作项 → 阶段 → 任务节点 → 尝试记录 → 产物 / 证据</code></pre>
+        <p data-i18n-html="guide.board.p3">点击工作项进入详情，可以查看完整执行路径。每个任务节点都包含任务说明、依赖、输入、输出、状态、耗时和历史尝试。</p>
       </section>
 
       <section id="sdd">
         <h2 data-i18n="guide.sdd.h">SDD 流水线</h2>
-        <p data-i18n="guide.sdd.p1">详情面板里四个节点横向排列，依规格逐步派生产物：</p>
-        <pre><code data-i18n="guide.sdd.code">[规格说明] → [技术方案] → [代码骨架] → [测试用例]</code></pre>
-        <p data-i18n-html="guide.sdd.p2"><b>推荐顺序</b>：先生成「规格说明」，之后技术方案 / 代码骨架 / 测试用例都基于规格生成。未生成规格就点后续步骤会提示「请先执行 AI 生成规格」。</p>
+        <p data-i18n="guide.sdd.p1">流水线不是一串黑盒提示词。每个阶段会展开为格式化任务，并记录真实输入、输出、命令、测试和发布证据：</p>
+        <pre><code data-i18n="guide.sdd.code">[需求澄清] → [规格 / 原型] → [方案 / 开发] → [单测 / 验收] → [发布 / 归档]</code></pre>
+        <p data-i18n-html="guide.sdd.p2"><b>推荐顺序</b>：先确认需求和验收标准，再执行下游任务。上游变化时，受影响的证据与产物会标记过期。</p>
         <table>
           <thead><tr><th data-i18n="guide.sdd.th.step">步骤</th><th data-i18n="guide.sdd.th.input">输入</th><th data-i18n="guide.sdd.th.output">产出</th><th data-i18n="guide.sdd.th.flow">自动阶段流转</th></tr></thead>
           <tbody>
-            <tr><td data-i18n="guide.sdd.r1.step">规格说明</td><td data-i18n="guide.sdd.r1.input">标题 + 需求描述</td><td data-i18n="guide.sdd.r1.output">规格文本</td><td data-i18n="guide.sdd.r1.flow">需求 → 产品</td></tr>
-            <tr><td data-i18n="guide.sdd.r2.step">技术方案</td><td data-i18n="guide.sdd.r2.input">规格说明</td><td data-i18n-html="guide.sdd.r2.output"><code>.lifecycle/&lt;id&gt;/design.md</code></td><td data-i18n="guide.sdd.r2.flow">产品 → 研发</td></tr>
-            <tr><td data-i18n="guide.sdd.r3.step">代码骨架</td><td data-i18n="guide.sdd.r3.input">规格说明</td><td data-i18n-html="guide.sdd.r3.output"><code>code.md</code> 或直接写工作区文件</td><td data-i18n="guide.sdd.r3.flow">—</td></tr>
-            <tr><td data-i18n="guide.sdd.r4.step">测试用例</td><td data-i18n="guide.sdd.r4.input">规格说明</td><td data-i18n-html="guide.sdd.r4.output"><code>.lifecycle/&lt;id&gt;/tests.md</code></td><td data-i18n="guide.sdd.r4.flow">研发 → 测试</td></tr>
+            <tr><td data-i18n="guide.sdd.r1.step">需求 / 规格</td><td data-i18n="guide.sdd.r1.input">想法、约束、项目上下文</td><td data-i18n="guide.sdd.r1.output">结构化需求、假设、验收标准</td><td data-i18n="guide.sdd.r1.flow">需求 → 产品</td></tr>
+            <tr><td data-i18n="guide.sdd.r2.step">产品 / 方案</td><td data-i18n="guide.sdd.r2.input">已确认规格</td><td data-i18n-html="guide.sdd.r2.output">原型、验收方案、技术设计</td><td data-i18n="guide.sdd.r2.flow">产品 → 研发</td></tr>
+            <tr><td data-i18n="guide.sdd.r3.step">开发</td><td data-i18n="guide.sdd.r3.input">冻结任务与方案</td><td data-i18n-html="guide.sdd.r3.output">工作区代码、变更摘要、追溯映射</td><td data-i18n="guide.sdd.r3.flow">研发</td></tr>
+            <tr><td data-i18n="guide.sdd.r4.step">测试 / 发布</td><td data-i18n="guide.sdd.r4.input">真实代码与构建结果</td><td data-i18n-html="guide.sdd.r4.output">单测、验收、发布事实与交付档案</td><td data-i18n="guide.sdd.r4.flow">测试 → 发布 → 完成</td></tr>
           </tbody>
         </table>
-        <h3 data-i18n="guide.sdd.h3">代码骨架直接写入工作区（可选）</h3>
-        <p data-i18n-html="guide.sdd.p3">设置项 <code>lifecycle.codeGenWriteFiles</code> 开启后，「代码骨架」改用 agent 模式，让 AI 用 Write/Edit 工具直接在当前工作区创建/修改源文件，完成后打开一份「改动总结」。建议在干净的 git 工作区下使用，便于 review 与回滚；每次执行前会弹确认框。</p>
+        <h3 data-i18n="guide.sdd.h3">写入工作区与外部副作用</h3>
+        <p data-i18n-html="guide.sdd.p3">支持写文件的 CLI Agent 可以在确认后直接修改当前工作区。执行前会冻结模型、目录、写入范围、命令和门禁；测试、Docker 或 GitHub 发布结果会记录为可复查事实。</p>
       </section>
 
       <section id="gates">
@@ -148,27 +149,26 @@ claude login</code></pre>
 
       <section id="data">
         <h2 data-i18n="guide.data.h">数据与产物</h2>
-        <p data-i18n-html="guide.data.p1">打开工作区文件夹时，全部数据存在工作区的 <code>.lifecycle/</code> 目录，可随 git 提交、团队共享：</p>
+        <p data-i18n-html="guide.data.p1">项目配置、工作项、任务运行、产物和交付记录保存在 <code>.lifecycle/</code>，可随 git 管理并在重开项目后恢复：</p>
         <pre><code data-i18n="guide.data.tree">&lt;你的项目&gt;/
 └── .lifecycle/
-    ├── items.json            # 所有工作项（标题/阶段/规格/产物路径…）
-    └── &lt;工作项id&gt;/
-        ├── design.md         # 技术方案
-        ├── code.md           # 代码骨架（文档模式）
-        └── tests.md          # 测试用例</code></pre>
-        <p data-i18n-html="guide.data.p2">删除工作项时，其 <code>.lifecycle/&lt;id&gt;/</code> 产物目录会被一并清理。未打开任何文件夹时，数据回退存到 VS Code 的 workspaceState（仅本机），AI 产物退化为临时文档（关闭即失，不落盘）。</p>
+    ├── project.json          # 项目与应用配置
+    ├── items.json            # 工作项与生命周期状态
+    ├── runs/                 # 任务快照、执行报告与证据
+    └── &lt;工作项id&gt;/            # 规格、方案、测试与交付产物</code></pre>
+        <p data-i18n-html="guide.data.p2">已有源码默认留在当前文件夹，不会被搬家。外部 AI 会接收完成任务所需的受控上下文；关键存储损坏或迁移不可信时，Specloom 会进入受限只读模式而不是继续覆盖数据。</p>
       </section>
 
       <section id="faq">
         <h2 data-i18n="guide.faq.h">常见问题</h2>
-        <h3 data-i18n="guide.faq.q1">报错「未找到 Claude CLI」</h3>
-        <p data-i18n-html="guide.faq.a1">未安装或不在 PATH。执行 <code>npm i -g @anthropic-ai/claude-code</code> 后 <code>claude login</code>，或用 <code>lifecycle.claudeCodePath</code> 指定完整路径。</p>
+        <h3 data-i18n="guide.faq.q1">AI 工具探测或连接测试失败</h3>
+        <p data-i18n-html="guide.faq.a1">打开「Specloom: Agent AI 工具设置」，检查 Cursor / Claude / Codex 的可执行路径、登录状态和明确模型，然后重新运行连接测试。</p>
         <h3 data-i18n="guide.faq.q2">报错「未找到可用的语言模型」（vscode-lm 模式）</h3>
         <p data-i18n="guide.faq.a2">需安装并登录可提供模型的扩展（如 GitHub Copilot）。</p>
         <h3 data-i18n="guide.faq.q3">点「打开」提示文档不存在</h3>
         <p data-i18n-html="guide.faq.a3"><code>.lifecycle/&lt;id&gt;/</code> 下的产物被手工删除了，重新「生成」即可。</p>
-        <h3 data-i18n="guide.faq.q4">阶段没自动推进</h3>
-        <p data-i18n="guide.faq.a4">只有当前正处于对应起始阶段时才会推进（如「技术方案」仅在「产品」阶段才推进到「研发」），以避免覆盖你手工设置的阶段。需要时直接点进度条圆点切换。</p>
+        <h3 data-i18n="guide.faq.q4">任务为什么停住或没有推进</h3>
+        <p data-i18n="guide.faq.a4">打开对应任务查看阻断原因。常见原因包括前置任务未完成、证据已过期、命令或测试失败、需要人工门禁，或外部执行结果需要对账。</p>
         <h3 data-i18n="guide.faq.q5">产物没落盘，只开了临时文档</h3>
         <p data-i18n="guide.faq.a5">当前没打开工作区文件夹，请在扩展宿主窗口打开一个文件夹后重试。</p>
       </section>
