@@ -227,7 +227,62 @@
     this.engine = engine;
     this.config = config;
     this.toastTimer = null;
+    this.releaseManifest = null;
+    this.releaseFailed = false;
   }
+
+  function validReleaseManifest(value) {
+    if (!value || typeof value !== "object" || value.schemaVersion !== 1 || value.extensionId !== "gmjobs.specloom" || value.channel !== "stable") return false;
+    if (!/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(value.version) || !/^[a-f0-9]{64}$/.test(value.sha256)) return false;
+    var expectedDownload = "https://github.com/gmjobs/specloom/releases/download/v" + value.version + "/specloom-" + value.version + ".vsix";
+    var expectedNotes = "https://github.com/gmjobs/specloom/releases/tag/v" + value.version;
+    return value.downloadUrl === expectedDownload && value.releaseNotesUrl === expectedNotes && !isNaN(Date.parse(value.publishedAt));
+  }
+
+  UIController.prototype.renderReleaseInfo = function () {
+    var dict = this.engine.dicts[this.engine.lang];
+    var version = document.getElementById("releaseVersion");
+    var date = document.getElementById("releaseDate");
+    var download = document.getElementById("releaseDownload");
+    var notes = document.getElementById("releaseNotes");
+    var sha = document.getElementById("releaseSha");
+    if (!version || !download || !notes || !sha) return;
+    if (!this.releaseManifest) {
+      if (this.releaseFailed) version.textContent = dict.install.releaseUnavailable;
+      return;
+    }
+    var manifest = this.releaseManifest;
+    version.textContent = "v" + manifest.version;
+    date.textContent = new Intl.DateTimeFormat(this.engine.lang === "zh" ? "zh-CN" : "en", { dateStyle: "medium" }).format(new Date(manifest.publishedAt));
+    download.href = manifest.downloadUrl;
+    notes.href = manifest.releaseNotesUrl;
+    download.target = notes.target = "_blank";
+    download.rel = notes.rel = "noopener noreferrer";
+    download.classList.remove("is-disabled");
+    notes.classList.remove("is-disabled");
+    download.removeAttribute("aria-disabled");
+    notes.removeAttribute("aria-disabled");
+    sha.textContent = dict.install.checksumLabel + ": " + manifest.sha256;
+    sha.classList.add("is-visible");
+  };
+
+  UIController.prototype.loadReleaseInfo = function () {
+    var self = this;
+    window.fetch(this.config.releaseManifestUrl, { cache: "no-store", redirect: "error", credentials: "omit" })
+      .then(function (response) {
+        if (!response.ok) throw new Error("release-manifest-http-" + response.status);
+        return response.json();
+      })
+      .then(function (value) {
+        if (!validReleaseManifest(value)) throw new Error("release-manifest-invalid");
+        self.releaseManifest = value;
+        self.renderReleaseInfo();
+      })
+      .catch(function () {
+        self.releaseFailed = true;
+        self.renderReleaseInfo();
+      });
+  };
 
   UIController.prototype.bind = function () {
     var self = this;
@@ -457,10 +512,12 @@
     engine.render = function (lang) {
       origRender(lang);
       ui.renderCommands();
+      ui.renderReleaseInfo();
     };
 
     engine.init();
     ui.bind();
+    ui.loadReleaseInfo();
   }
 
   if (document.readyState === "loading") {

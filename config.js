@@ -13,6 +13,9 @@
     // 默认显示语言：无显式偏好（localStorage）时一律用英文
     defaultLang: "en",
 
+    // 发布脚本会原子更新该同源清单；官网和扩展都以它作为 stable 通道事实源。
+    releaseManifestUrl: "releases/latest.json",
+
     // 安装与配置命令：Specloom 是 VS Code 扩展，默认以 Claude Code 作为 AI 引擎。
     // 下列为「配置 AI 引擎」所需命令；扩展本身在 VS Code 扩展面板中安装。
     install: {

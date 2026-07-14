@@ -193,6 +193,15 @@ h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.8px;margin-bo
 .install-info h3{font-size:20px;margin-bottom:12px}
 .install-info p{color:var(--muted);font-size:15px;margin-bottom:18px}
 .install-info .btn{margin-right:10px;margin-bottom:10px}
+.release-card{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:18px;margin-bottom:24px}
+.release-label{display:block;color:var(--muted);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.release-card strong{font-size:22px;color:var(--text)}
+.release-date{display:block;color:var(--muted-2);font-size:12px;margin-top:4px}
+.release-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.release-actions .btn{margin:0}
+.release-actions .is-disabled{opacity:.45;pointer-events:none}
+.release-sha{display:none;color:var(--muted-2);font-size:11px;word-break:break-all;margin-top:12px}
+.release-sha.is-visible{display:block}
 
 /* ---------- FOOTER ---------- */
 footer{border-top:1px solid var(--line);padding:46px 0 56px;margin-top:30px}

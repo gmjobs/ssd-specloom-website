@@ -195,6 +195,12 @@
       copiedLabel: "已复制",
       copyAria: "复制安装命令",
       placeholderNote: "",
+      latestLabel: "最新稳定版",
+      loadingRelease: "正在检查版本…",
+      releaseUnavailable: "首个公开安装包准备中",
+      downloadVsix: "下载 VSIX",
+      releaseNotes: "更新说明",
+      checksumLabel: "SHA-256",
       infoTitle: "在 VS Code 里运行",
       infoText:
         "在 VS Code 扩展面板安装 Specloom，命令面板运行「Specloom: 配置 AI（引导）」完成对接。随后在侧栏新建工作项、点击「▶ 运行流水线」即可——数据存于工作区 .lifecycle/，可随 git 提交。",

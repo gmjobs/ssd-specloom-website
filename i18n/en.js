@@ -195,6 +195,12 @@
       copiedLabel: "Copied",
       copyAria: "Copy install command",
       placeholderNote: "",
+      latestLabel: "Latest stable",
+      loadingRelease: "Checking release…",
+      releaseUnavailable: "The first public package is being prepared",
+      downloadVsix: "Download VSIX",
+      releaseNotes: "Release notes",
+      checksumLabel: "SHA-256",
       infoTitle: "Runs inside VS Code",
       infoText:
         "Install Specloom from the VS Code Extensions panel, then run “Specloom: Configure AI (guided)” from the Command Palette to connect it. Create a work item in the sidebar and hit “▶ Run pipeline” — data lives in your workspace's .lifecycle/, ready to commit with git.",
